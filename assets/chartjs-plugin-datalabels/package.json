@@ -1,0 +1,81 @@
+{
+  "_from": "chartjs-plugin-datalabels",
+  "_id": "chartjs-plugin-datalabels@0.5.0",
+  "_inBundle": false,
+  "_integrity": "sha512-R82bKXMXmtivrCgEHzSGkFmX2blFJtZh0AyDobEOpPtAIBAlDtMHOaMBw1sTRk0hytKdZuJgvsBaFnvzsgrjOw==",
+  "_location": "/chartjs-plugin-datalabels",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "chartjs-plugin-datalabels",
+    "name": "chartjs-plugin-datalabels",
+    "escapedName": "chartjs-plugin-datalabels",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chartjs-plugin-datalabels/-/chartjs-plugin-datalabels-0.5.0.tgz",
+  "_shasum": "b9c7a99857b2a52b6db70f63fc9f3a65d887d523",
+  "_spec": "chartjs-plugin-datalabels",
+  "_where": "C:\\Users\\jkirtz\\Desktop\\DukeEnergy_GISLayoutTemplates\\dukelayout_viewquery",
+  "bugs": {
+    "url": "https://github.com/chartjs/chartjs-plugin-datalabels/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Chart.js plugin to display labels on data elements",
+  "devDependencies": {
+    "chart.js": "2.7.2",
+    "eslint-config-chartjs": "^0.1.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-file": "^0.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-zip": "^4.2.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^3.1.1",
+    "karma-coverage": "^1.1.2",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "karma-rollup-preprocessor": "^6.1.0",
+    "karma-spec-reporter": "^0.0.32",
+    "merge2": "^1.2.3",
+    "pixelmatch": "^4.0.2",
+    "rollup": "^0.67.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-istanbul": "^2.0.1",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-terser": "^3.0.0",
+    "vuepress": "^0.14.5",
+    "yargs": "^12.0.2"
+  },
+  "files": [
+    "bower.json",
+    "dist/*.js",
+    "src"
+  ],
+  "homepage": "https://chartjs-plugin-datalabels.netlify.com",
+  "keywords": [
+    "chart.js",
+    "plugin",
+    "label"
+  ],
+  "license": "MIT",
+  "main": "dist/chartjs-plugin-datalabels.js",
+  "name": "chartjs-plugin-datalabels",
+  "peerDependencies": {
+    "chart.js": ">= 2.7.0 < 3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chartjs/chartjs-plugin-datalabels.git"
+  },
+  "version": "0.5.0"
+}

@@ -1,0 +1,1145 @@
+$primaryColor: #5d5c61;
+$secondaryColor: #938E94;
+$thirdColor: #8E8D8A;
+$secondaryTextColor: #1A2930;
+$primaryTextColor: #D79922;
+$offTextColor: white;
+$originalOpacity: 0.75;
+$cardBackgroundColor: rgba(0,0,0,0.1);
+$cardBorderColor: #999;
+$googleFontFamily: "Oswald";
+
+@mixin transition($property) {
+    -webkit-transition: $property;
+    -ms-transition: $property;
+    -o-transition: $property;
+    transition: $property;
+}
+
+@mixin boxshadow($property) {
+    -webkit-box-shadow: $property;
+    -moz-box-shadow: $property;
+    box-shadow: $property;
+}
+
+:focus {
+    outline: none;
+}
+
+/* bookmark widget styles */
+.esri-bookmarks__list {
+    max-height: 300px;
+    overflow: auto;
+}
+
+#addCustomBookmark span {
+    @include transition(font-size 0.15s linear);
+    position: absolute;
+
+    &:hover {
+        @include transition(font-size 0.15s linear);
+        font-size: 18px;
+    }
+    &:active{
+        @include transition(font-size 0.15s linear);
+        font-size: 12px;
+    }
+}
+
+#customBookmarkText {
+    margin-left: 20px;
+}
+
+#addCustomBookmark{
+    padding: 5px;
+    height: 20px;
+    color: $primaryTextColor;
+    span {
+        cursor: pointer;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* coordinate conversion styling */
+#panelCoordinateConversion #collapseCoordinateConversion div #coordinateConversionDiv div ul li .esri-coordinate-conversion__select-row {
+    color: $primaryTextColor;
+    width: 40vh;
+}
+
+#panelQuery>div>.panel-body {
+    width: 50vw;
+    max-height: 65vh;
+}
+
+.statsCanvas {
+    width: 400px;
+    height: 400px;
+}
+
+.chart-container {
+    height: 400px;
+}
+
+#queryTools {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    margin: 0 0 5px 5px;
+}
+
+.noVisibility {
+    visibility: hidden;
+}
+
+#geometryQueryButtons>div>div> {
+
+    .esri-icon-pan,
+    .esri-icon-cursor,
+    .esri-icon-polyline,
+    .esri-icon-map-pin,
+    div:nth-child(10),
+    div:nth-child(3) {
+        display: none;
+    }
+}
+
+#groupByFilter {
+    width: 150px;
+    color: $secondaryTextColor;
+    
+}
+
+#groupByFilterText {
+    color: $primaryTextColor;
+    line-height: 32px;
+    margin: 0px 5px 0px 10px;
+}
+
+#tableControlsContainer,
+#queryingIndicatorContainer,
+#tableFilters,
+#downloadtablebuttons {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+#queryIndicator{
+    margin-left: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+#queryIndicatorText {
+    margin-left: 5px;
+    color: red;
+}
+
+#screenshot3DDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#download3dScreenshotButton,
+#close3dScreenshotButton {
+    display: inline;
+}
+
+// navbar styling
+#jhknav {
+    @include transition(background-color 0.15s linear);
+    @include transition(opacity 0.15s linear);
+    background-color: $primaryColor;
+    opacity: $originalOpacity;
+
+    .calcite-dropdown>a>div>span {
+        background-color: $primaryTextColor;
+    }
+
+    .calcite-title-main {
+        font-weight: bold;
+    }
+
+    .calcite-title>span {
+        color: $primaryTextColor;
+    }
+
+    #mapViewNav,
+    #sceneViewNav {
+        @include transition(background-color 0.15s linear);
+        color: $primaryTextColor;
+        font-weight: bold;
+
+        &:hover {
+            @include transition(background-color 0.15s linear);
+            background-color: $secondaryColor;
+        }
+
+        &:focus {
+            background-color: $thirdColor;
+        }
+    }
+
+    #searchNavDiv {
+        background-color: transparent;
+
+        input {
+            background-color: white;
+        }
+    }
+
+    .dropdown-menu {
+        @include transition(background-color 0.15s linear);
+        @include boxshadow(none);
+        @include transition(opacity 0.15s linear);
+        background-color: white;
+        opacity: $originalOpacity;
+
+        &:hover {
+            @include transition(background-color 0.15s linear);
+            @include boxshadow(1px 1px 1px 0 rgba(0, 0, 0, .1));
+            background-color: $primaryColor;
+        }
+
+        a {
+            @include transition(color 0.15s linear);
+            color: $secondaryTextColor;
+            border-left: 3px solid transparent;
+
+            &:hover {
+                @include transition(color 0.15s linear);
+                color: $primaryTextColor;
+                border-left: 3px solid $primaryTextColor;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &:hover {
+        @include transition(background-color 0.15s linear);
+        @include transition(opacity 0.15s linear);
+        background-color: $primaryColor;
+        opacity: 1;
+
+        &>div>.dropdown-menu {
+            @include transition(background-color 0.15s linear);
+            @include transition(opacity 0.15s linear);
+            background-color: white;
+            opacity: 1;
+        }
+    }
+
+}
+
+.calcite-panels {
+    @include transition(background-color 0.15s linear);
+    @include transition(color 0.15s linear);
+    background-color: white;
+    z-index: 0;
+
+    .panel>.panel-heading {
+        @include transition(background-color 0.15s linear);
+        background-color: $primaryColor;
+        color: $secondaryTextColor;
+
+        &:hover {
+            @include transition(background-color 0.15s linear);
+            background-color: $secondaryColor;
+        }
+
+        &>div {                     
+            .panel-toggle{
+                @include transition(color 0.15s linear);   
+                color: $primaryTextColor;
+            }          
+
+            &:hover .panel-toggle {
+                @include transition(color 0.15s linear);
+                color: $offTextColor;
+            }
+            &:hover .panel-close {
+                @include transition(color 0.15s linear);
+                color: $offTextColor;
+            }
+        }
+
+        &>div>.panel-close {
+            @include transition(color 0.15s linear);
+            color: $primaryTextColor;
+        }
+    }
+}
+
+.calcite-map div div div div div div div .esri-widget--button,
+.calcite-map div div div div div div div div .esri-widget--button {
+    @include transition(color 0.15s linear);
+    @include transition(background-color 0.15s linear);
+    @include transition(font-size 0.15s linear);
+    background-color: $primaryColor;
+    color: $primaryTextColor;
+
+    &:hover {
+
+        & .esri-icon {
+            @include transition(color 0.15s linear);
+            @include transition(font-size 0.15s linear);
+            color: $offTextColor;
+            font-size: 20px;
+        }
+
+        & .esri-compass__icon {
+            @include transition(color 0.15s linear);
+            @include transition(font-size 0.15s linear);
+            color: $offTextColor;
+            font-size: 24px;
+        }
+    }
+}
+
+.calcite-map div div div div div div div .esri-widget--button .esri-compass__icon,
+.calcite-map div div div div div div div .esri-widget--button .esri-icon,
+.calcite-map div div div div div div div div .esri-widget--button .esri-icon {
+    @include transition(font-size 0.15s linear);
+}
+
+.draw-polygon-row-item,
+#areaButton>span,
+#distanceButton>span,
+div>div>div>div>div>#coordinateConversionDiv>div>div>.esri-select {
+    @include transition(color 0.15s linear);
+    color: $primaryTextColor;
+}
+
+#areaButton,
+#distanceButton,
+.draw-polygon-row-item {
+    display: inline-flex;
+}
+
+#drawPolygonLabel,
+#drawPolylineLabel,
+#drawPolygon,
+#drawPolyline{
+    @include transition(color 0.15s linear);
+    color: $primaryTextColor;
+    background-color: transparent;
+    display: inline-flex;
+    &:hover span {
+        @include transition(font-size 0.15s linear);
+        font-size: 18px;
+    }
+    &:active span {
+        @include transition(font-size 0.15s linear);
+        font-size: 12px;
+    }
+}
+
+#drawPolygon span,
+#drawPolyline span{
+    @include transition(font-size 0.15s linear);
+}
+
+#measureOutput2D,
+#measureOutput3D {
+
+    label,
+    .esri-area-measurement-3d__measurement-item-title,
+    .esri-direct-line-measurement-3d__measurement-item-title {
+        color: $primaryTextColor;
+    }
+
+    select,
+    .esri-area-measurement-3d__measurement-item-value,
+    .esri-direct-line-measurement-3d__measurement-item-value {
+        color: $secondaryTextColor;
+    }
+}
+
+.esri-basemap-gallery__item {
+    @include transition(border-left 0.15s linear);
+    @include transition(color 0.15s linear);
+    border-left: 3px solid transparent;
+
+    &:hover {
+        @include transition(border-left 0.15s linear);
+        @include transition(color 0.15s linear);
+        border-left: 3px solid $primaryTextColor;
+        background-color: white;
+    }
+
+    .esri-basemap-gallery__item-title {
+        @include transition(color 0.15s linear);
+        color: $secondaryTextColor;
+    }
+
+    &:hover .esri-basemap-gallery__item-title {
+        @include transition(color 0.15s linear);
+        color: $primaryTextColor;
+    }
+}
+
+.esri-coordinate-conversion__select-primary,
+#coordinateConversionDiv>div>div>select,
+#coordinateConversionDiv__esri-coordinate-conversion__pattern-input,
+#overviewMapToggleDiv>label,
+#elevationToggleDiv>label,
+#clusterDiv>label,
+.esri-widget__heading,
+.esri-legend__layer-caption {
+    @include transition(color 0.15s linear);
+    color: $primaryTextColor;
+}
+
+#coordinateConversionDiv {
+    div >.esri-coordinate-conversion__heading {
+        background-color: transparent;
+
+        .esri-coordinate-conversion__back-button span {
+            @include transition(font-size 0.15s linear);
+        }
+
+        .esri-coordinate-conversion__back-button {
+            @include transition(font-size 0.15s linear);
+            background-color: transparent;
+            color: $primaryTextColor;
+
+            &:hover span {
+                @include transition(font-size 0.15s linear);
+                font-size: 18px;
+            }
+
+            &:active span {
+                @include transition(font-size 0.15s linear);
+                font-size: 12px;
+            }
+        }
+    }
+
+    div > div > ul > li > span {
+        @include transition(font-size 0.15s linear);
+    }
+
+    div > div > ul > li {
+        @include transition(font-size 0.15s linear);
+        background-color: transparent;
+        color: $primaryTextColor;
+
+        &:hover span {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+
+        &:active span {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+
+    div > div > .esri-coordinate-conversion__settings-group-horizontal > div > span {
+        @include transition(font-size 0.15s linear);
+    }
+    div > div > .esri-coordinate-conversion__settings-group-horizontal > div {
+        @include transition(font-size 0.15s linear);
+            background-color: transparent;
+            color: $primaryTextColor;
+
+            &:hover span {
+                @include transition(font-size 0.15s linear);
+                font-size: 18px;
+            }
+
+            &:active span {
+                @include transition(font-size 0.15s linear);
+                font-size: 12px;
+            }
+    }
+}
+
+#coordinateConversionDiv > div > div:nth-child(2) > label,
+#coordinateConversionDiv__esri-coordinate-conversion__input-coordinate,
+.esri-legend__layer-cell--info,
+.esri-coordinate-conversion__display,
+#coordinateConversionDiv__esri-coordinate-conversion__preview-coordinate {
+    @include transition(color 0.15s linear);
+    color: $secondaryTextColor;
+}
+
+#coordinateConversionDiv__esri-coordinate-conversion__pattern-input__header,
+#coordinateConversionDiv > div > div > label {
+    @include transition(color 0.15s linear);
+    color: $primaryTextColor;
+}
+
+#coordinateConversionDiv > div > .esri-coordinate-conversion__conversion-list > li > ul > li > span {
+    @include transition(color 0.15s linear);
+    @include transition(font-size 0.15s linear);
+}
+
+#coordinateConversionDiv > div > .esri-coordinate-conversion__conversion-list > li > ul > li {
+    @include transition(color 0.15s linear);
+    @include transition(font-size 0.15s linear);
+    color: $secondaryTextColor;
+    &:hover{
+        @include transition(color 0.15s linear);
+        background-color:transparent;
+        color: $primaryTextColor;
+    }
+    &:hover span {
+        @include transition(font-size 0.15s linear);
+        font-size: 18px;
+    }
+
+    &:active span {
+        @include transition(font-size 0.15s linear);
+        font-size: 12px;
+    }
+}
+
+#editorDiv {
+    .esri-editor__content {
+        background-color: white;
+    }
+
+    h4 {
+        color: $primaryTextColor;
+    }
+
+    .esri-editor__feature-list-item {
+        @include transition(border-left-color 0.15s linear);
+        @include transition(color 0.15s linear);
+        color: $secondaryTextColor;
+        border-top: none;
+        border-bottom: none;
+        border-right: none;
+        border-left-width: 3px;
+        border-left-color: transparent;
+        border-left-style: solid;
+
+        &:hover {
+            @include transition(border-left-color 0.15s linear);
+            @include transition(color 0.15s linear);
+            border-left-width: 3px;
+            border-left-color: $primaryTextColor;
+            border-left-style: solid;
+            color: $primaryTextColor;
+        }
+    }
+
+    .esri-editor__message {
+        color: $secondaryTextColor;
+    }
+
+    .esri-feature-form {
+        background-color: white;
+    }
+
+    .esri-feature-form__label {
+        color: $primaryTextColor;
+
+        input {
+            color: $secondaryTextColor;
+        }
+    }
+
+    .esri-editor__warning-message {
+        color: $secondaryTextColor;
+    }
+
+    .esri-editor__warning-option {
+        @include transition(border-left 0.15s linear);
+        @include transition(color 0.15s linear);
+        color: $secondaryTextColor;
+        border-left: 3px solid transparent;
+
+        &:hover {
+            @include transition(border-left 0.15s linear);
+            @include transition(color 0.15s linear);
+            border-left: 3px solid $primaryTextColor;
+            color: $primaryTextColor;
+        }
+    }
+
+    .esri-editor__back-button span {
+        @include transition(font-size 0.15s linear);
+    }
+
+    .esri-editor__back-button {
+        background-color: transparent;
+        color: $primaryTextColor;
+        &:hover span {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active span {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+}
+
+#layerListDiv {
+    .esri-layer-list__item-title {
+        color: $primaryTextColor;
+    }
+
+    .esri-layer-list__item-actions-list {
+        background-color: white;
+
+        .esri-layer-list__item-action {
+            @include transition(border-left 0.15s linear);
+            @include transition(color 0.15s linear);
+            background-color: white;
+            border-left: 3px solid transparent;
+            color: $secondaryTextColor;
+
+            &:hover {
+                @include transition(border-left 0.15s linear);
+                @include transition(color 0.15s linear);
+                border-left: 3px solid $primaryTextColor;
+                color: $primaryTextColor;
+            }
+        }
+    }
+
+    .esri-icon-non-visible {
+        color: red;
+    }
+}
+
+#filterToolSelectMenuLabel {
+    color: $primaryTextColor;
+}
+
+#filterToolSelectMenu {
+    color: $secondaryTextColor;
+}
+
+.esri-bookmarks__bookmark-button {
+    @include transition(color 0.15s linear);
+    border-left: 3px solid transparent;
+    &:hover{
+        @include transition(color 0.15s linear);
+        border-left: 3px solid $primaryTextColor;
+        background-color: transparent;
+        color: $primaryTextColor;
+    }
+}
+
+#panelPrintWidget {
+    #printWidgetDiv__layoutTab,
+    #printWidgetDiv__mapOnlyTab {
+        color: $primaryTextColor;
+    }
+    .esri-print__form-section-container > label,
+    .esri-print__width-container > label, 
+    .esri-print__height-container > label {
+        color: $primaryTextColor;
+    }
+    .esri-print__form-section-container > label > input,
+    .esri-print__form-section-container > label > select,
+    .esri-print__width-container > label > input, 
+    .esri-print__height-container > label > input {
+        color: $secondaryTextColor;
+    }
+    .esri-print__export-panel-container > div > div,
+    .esri-print__scale-input {
+        color: $secondaryTextColor;
+    }
+    
+    .esri-print__swap-button {
+        @include transition(font-size 0.15s linear);
+        color: $primaryTextColor;
+        &:hover {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+}
+
+#panelInfo {
+    color: $secondaryTextColor;
+}
+
+#aboutPanelBody {
+    text-align:center;
+    width:900px;
+}
+
+#panelSketch {
+    label {
+        color: $primaryTextColor;
+    }
+    select {
+        color: $secondaryTextColor;
+    }
+    .esri-sketch__button {
+        @include transition(font-size 0.15s linear);
+        background-color: transparent;
+        color: $primaryTextColor;
+        &:hover {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+}
+
+#panelQuery {
+    .card {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    #tableControlsContainer {
+        border-right: 1px solid $cardBorderColor;
+        border-left: 1px solid $cardBorderColor;
+    }
+
+    #collapseCountChart {
+        background-color: $cardBackgroundColor;
+    }
+
+    .card-header {
+        width: 100%;
+        background-color: $primaryColor;
+        color: $primaryTextColor;
+        &:hover {
+            @include transition(background-color 0.15s linear);
+            background-color: $secondaryColor;
+            color: $offTextColor;
+        }
+    }
+
+    .esri-sketch__button {
+        @include transition(font-size 0.15s linear);
+        background-color: transparent;
+        color: $primaryTextColor;
+
+        &:hover {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+
+    #zoomToExtentOfQueryPoly span,
+    #clearHighlightedFeatures span {
+        @include transition(font-size 0.15s linear);
+    }
+
+    #zoomToExtentOfQueryPoly,
+    #clearHighlightedFeatures {
+        @include transition(font-size 0.15s linear);
+        background-color: transparent;
+        color: $primaryTextColor;
+
+        &:hover span {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active span {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+
+    .queryOutputs {
+        color: $secondaryTextColor;
+    }
+
+    #resetChartButton span {
+        @include transition(font-size 0.15s linear);
+    }
+    #resetChartButton {
+        @include transition(font-size 0.15s linear);
+        background-color: transparent;
+        color: $primaryTextColor;
+        display: inline-flex;
+
+        &:hover span {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active span {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+
+    #resetChartButtonText {
+        color: $secondaryColor;
+        display: inline-flex;
+    }
+
+    #downloadXlsx,
+    #downloadCsv,
+    #filterClear {
+        @include transition(font-size 0.15s linear);
+    }
+    #downloadXlsx,
+    #downloadCsv,
+    #filterClear {
+        @include transition(font-size 0.15s linear);
+        background-color: transparent;
+        color: $primaryTextColor;
+
+        &:hover {
+            @include transition(font-size 0.15s linear);
+            font-size: 18px;
+        }
+        &:active {
+            @include transition(font-size 0.15s linear);
+            font-size: 12px;
+        }
+    }
+}
+
+.esri-popup__header,
+.esri-popup--is-docked .esri-popup__header {
+    padding-top: 0px;
+}
+.esri-popup__header-container--button {
+    @include transition(background-color 0.15s linear);
+    @include transition(color 0.15s linear);
+    background-color: $primaryColor;
+    &:hover {
+        @include transition(background-color 0.15s linear);
+        background-color: $secondaryColor;
+    }
+    &:hover .esri-popup__header-title {
+        @include transition(color 0.15s linear);
+        color: $offTextColor;
+    }
+}
+
+.esri-popup__header-title {
+    color: $primaryTextColor;
+    &:hover {
+        background-color: transparent;
+    }
+    
+}
+
+.esri-popup__header {
+    .esri-popup__button:hover {
+        background-color: transparent;
+    }
+}
+
+.esri-search__submit-button,
+.esri-search__clear-button {
+    @include transition(color 0.15s linear);
+    color: $primaryTextColor;
+    &:hover {
+        @include transition(color 0.15s linear);
+        color: $offTextColor;
+    }
+}
+
+#bookmarksDiv > div > form > label > input {
+    color: black;
+}
+
+#aboutMeImages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .aboutMeImage {
+    @include boxshadow(0 4px 2px -2px rgba(0, 0, 0, 0.4));
+    max-height: 300px;
+  }
+
+  .aboutMeImageCaption {
+    text-align: center;
+    font-size:11px;
+    margin-top:3px;
+  }
+
+  .screenshot_label {
+      color: $primaryTextColor;
+  }
+
+  .esri-ui {
+      z-index: 1;
+  }
+
+  .esri-ui-top-left {
+      z-index: 4;
+  }
+
+  .calcite-navbar {
+      z-index: 2;
+  }
+
+// MEDIA QUERIES
+
+// iPad 1, 2, Mini and Air, etc
+@media only screen and (min-device-width: 768px) and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1) {
+    // #overviewMap {
+    //     display: none;
+    // }
+
+    #printWidgetListItem {
+        display: none;
+    }
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// iPad 3, 4 and Pro 9.7", etc
+@media only screen and (min-device-width: 768px) and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:2) {
+    // #overviewMap {
+    //     display: none;
+    // }
+
+    #printWidgetListItem {
+        display: none;
+    }
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// iPad Pro 10.5" (Portrait)
+@media only screen and (min-device-width: 834px) and (max-device-width:834px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio:2) {
+    #overviewMap {
+        display: none;
+    }
+    #printWidgetListItem {
+        display: none;
+    }
+
+    #settingsListItem,
+    #queryWidgetListItem {
+        display: none;
+    }
+    
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// iPad Pro 10.5" (Landscape)
+@media only screen and (min-device-width: 1112px) and (max-device-width:1112px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio:2) {
+    // #overviewMap {
+    //     display: none;
+    // }
+
+    #printWidgetListItem {
+        display: none;
+    }
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// iPad Pro 12.9" (Portrait)
+@media only screen and (min-device-width: 1024px) and (max-device-width:1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio:2) {
+    // #overviewMap {
+    //     display: none;
+    // }
+
+    #printWidgetListItem {
+        display: none;
+    }
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// iPad Pro 12.9" (Landscape)
+@media only screen and (min-device-width: 1366px) and (max-device-width:1366px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio:2) {
+    // #overviewMap {
+    //     display: none;
+    // }
+
+    #printWidgetListItem {
+        display: none;
+    }
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// Low Resolution Tablets, Mobiles (Landscape)
+@media (min-width: 481px) and (max-width:767px) {
+    #overviewMap {
+        display: none;
+    }
+    #printWidgetListItem {
+        display: none;
+    }
+    #settingsListItem,
+    #queryWidgetListItem {
+        display: none;
+    }
+
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 150px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #basemapGallery,
+    #bookmarksDiv,
+    #coordinateConversionDiv,
+    #layerListDiv,
+    #legendDiv,
+    #measureGroup,
+    #sketchDiv,
+    #panelInfo>#collapseInfo>div {
+      overflow: scroll;
+      padding-bottom: 150px;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+// Most of the Smartphones Mobiles (Portrait)
+@media (min-width: 320px) and (max-width:480px) {
+    #overviewMap {
+        display: none;
+    }
+    #printWidgetListItem {
+        display: none;
+    }
+    #settingsListItem,
+    #queryWidgetListItem {
+        display: none;
+    }
+
+    #jhknav,
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .calcite-panels {
+        max-height: 250px;
+    }
+
+    #aboutPanelBody {
+        width:100%;
+    }
+
+    #basemapGallery,
+    #bookmarksDiv,
+    #coordinateConversionDiv,
+    #layerListDiv,
+    #legendDiv,
+    #measureGroup,
+    #sketchDiv,
+    #panelInfo>#collapseInfo>div {
+      overflow: scroll;
+      padding-bottom: 200px;
+    }
+
+    #aboutMeImages {
+        display: block;
+      }
+}
+

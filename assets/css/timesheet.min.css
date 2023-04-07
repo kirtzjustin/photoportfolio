@@ -1,7 +1,8 @@
 .timesheet {
-    width: 60%;
-    height: 100%;
-    margin: auto;
+    width: 50%;
+    /* height: 100%; */
+    /* outline:1px solid white; */
+    /* margin: auto; */
     background-color:black !important;
 }
 
