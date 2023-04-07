@@ -64,6 +64,11 @@ function queryLayerViewStats(buffer) {
 
             for (var i in response.features) {
                 // create array of attribute objects for tabulator table
+                let stringifiedJSON = JSON.parse(response.features[i].attributes.Location)
+                
+                for(let x in stringifiedJSON) {
+                    response.features[i].attributes[x] = stringifiedJSON[x]
+                }
                 tableData.push(response.features[i].attributes);
                 // GETS COUNT OF FEATURES BROKEN OUT BY SPECIFIED ATTRIBUTE NAME FROM DATAFIELDS ARRAY
                 if (response.features[i].attributes.Published) {
@@ -382,8 +387,28 @@ function updateCharts(
                 headerFilterPlaceholder: 'Filter Column'
             },
             {
-                title: "Location",
-                field: "Location",
+                title: "Business Name",
+                field: "Business Name",
+                sorter: "string",
+                frozen: false,
+                // topCalc: "count",
+                // editor: "input",
+                headerFilter: true,
+                headerFilterPlaceholder: 'Filter Column'
+            },
+            {
+                title: "Address",
+                field: "Address",
+                sorter: "string",
+                frozen: false,
+                // topCalc: "count",
+                // editor: "input",
+                headerFilter: true,
+                headerFilterPlaceholder: 'Filter Column'
+            },
+            {
+                title: "Country Code",
+                field: "Country Code",
                 sorter: "string",
                 frozen: false,
                 // topCalc: "count",

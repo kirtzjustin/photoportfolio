@@ -67,6 +67,10 @@
   height: 400px;
 }
 
+#chartDiv{
+  height: 600px;
+}
+
 #queryTools {
   display: flex;
   display: -webkit-box;

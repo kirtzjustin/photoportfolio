@@ -19,7 +19,7 @@
   <!-- JHK Critical CSS  -->
   <link rel="stylesheet" href="assets/css/jhkcriticalcss.min.css">
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
   <!-- JHK JS Scripts -->
   <script type='text/javascript' src='assets/js/addalphatocolor.min.js'></script>
   <script type='text/javascript' src='assets/js/resettabulatortable.min.js'></script>
@@ -177,13 +177,13 @@
             graduating college in 2010 I served as the GIS Planner for the City of Greer, SC where I was a
             one man GIS department. During this time I discovered a passion for writing code and taught
             myself Python and JavaScript in my spare time at home. I oversaw the implementation and development of Greer's web GIS platform using ArcGIS Server and wrote Greer's custom web-based GIS viewer using the
-            ESRI JavaScript 4.x API, <a href="https://gismaps.cityofgreer.org/mapgallery/" target="_blank">which is still in use today</a>. After seven years with Greer I decided to
+            ESRI JavaScript 4.x API. After seven years with Greer I decided to
             transition to the private sector and joined SynTerra Corporation in downtown Greenville, SC as the GIS
-            Administrator specializing in GIS web development.</p>
+            Administrator specializing in GIS web development. After three years with SynTerra I decided to return to the public sector as the GIS Supervisor with Greenville Water, where I lead the GIS team within the Department of Engineering.</p>
           <br>
-          <img class='aboutMeImage' src="http://jkirtz.x10host.com/images/GreerCitizenArticle.jpg" alt="Greer Citizen">
+          <img class='aboutMeImage' src="images/fulls/GreerCitizenArticle.jpg" alt="Greer Citizen">
           <p class="aboutMeImageCaption">The Greer Citizen, March 14, 2018</p>
-          <p>While writing code is a relatively new passion of mine playing music has been a lifelong endeavor. I
+          <!-- <p>While writing code is a relatively new passion of mine playing music has been a lifelong endeavor. I
             started playing trombone when I was in 3rd grade and picked up the guitar in 8th grade. I was a trombone
             player in the ASU Jazz Ensemble I, making the top jazz ensemble as a non-music major. After college I turned
             my focus to primarily guitar. I periodically record videos for my YouTube channel which has somehow gotten a half million total views over the years.</p>
@@ -194,10 +194,10 @@
           <iframe width="375" height="211" src="https://www.youtube.com/embed/SsLWIy941Sk" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe width="375" height="211" src="https://www.youtube.com/embed/7BipNDwT_mw" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
           <p>I currently live in the Greenville area with my wife Allison and our beautiful daughter,
-            Scarlett. We also have two dogs; Tosche, a Rhodesian Ridgeback/Lab mix and Ava, a Yorkie.</p>
-          <div id='aboutMeImages'>
+            Scarlett. We also have two snakes; Slinky, a corn snake and Atheris, an eastern kingsnake.</p>
+          <!-- <div id='aboutMeImages'>
             <figure>
               <img class='aboutMeImage' src="http://jkirtz.x10host.com/images/alliandi.jpg" alt="Allison">
               <p class="aboutMeImageCaption">My wife and I at Predjama Castle in Predjama, Slovenia</p>
@@ -207,12 +207,12 @@
               <img class='aboutMeImage' src="http://jkirtz.x10host.com/images/scarlettandi.jpg" alt="Scarlett and I">
               <p class="aboutMeImageCaption">Scarlett and I</p>
             </figure>
-          </div>
+          </div> -->
 
         </div>
         <div style='text-align:center;padding-bottom: 5px;padding-top: 5px;border-top: 0.5px solid gray;'>
           <p><a href="mailto:kirtzjustin@gmail.com">kirtzjustin@gmail.com</a></p>
-          <p><a href="http://jkirtz.x10host.com/files/JustinKirtzResume" target='_blank'>View my resume</a></p>
+          <!-- <p><a href="http://jkirtz.x10host.com/files/JustinKirtzResume" target='_blank'>View my resume</a></p> -->
           <a href="https://github.com/kirtzjustin" target="_blank"><i title='Find me on GitHub'
               class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/justin-kirtz-b0485a9b/" target="_blank"><i
@@ -702,7 +702,7 @@
 
         </div>
         <div id='queryingIndicatorContainer' class='noVisibility'>
-          <img id='queryIndicator' src="img/gifs/loadingIndicator.gif" />
+          <img id='queryIndicator' src="images/gifs/loadingIndicator.gif" />
           <p id='queryIndicatorText'>Querying, please wait...</p>
         </div>
         <div class="panel-body" id='chartPanelBody'>
@@ -763,6 +763,7 @@
                           <label id='groupByFilterText'>Group Results By</label>
                           <select id="groupByFilter" class='esri-select' title='Select group results by field'>
                             <option></option>
+                            <option value="Country Code">Country</option>
                             <option value="Published">Date Added</option>
                             <option value="Updated">Date Updated</option>
                           </select>
@@ -823,7 +824,7 @@
   <!-- dojoConfig -->
   <script type="text/javascript" src="assets/js/dojoConfig.min.js"></script>
   <!-- ArcGIS JS 4 -->
-  <script type="text/javascript" src="https://js.arcgis.com/4.15/"></script>
+  <script src="https://js.arcgis.com/4.23/"></script>
   <!-- main app JS files -->
   <script type="text/javascript" src="assets/js/jkapp.min.js"></script>
   <script type="text/javascript" src="assets/js/geometryquerylogic.min.js"></script>
