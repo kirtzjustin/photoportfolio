@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="J. Kirtz Travel Locations">
   <link rel="icon" href="images/favicons/camera.png">
-  <title>J. Kirtz Travel & Photography</title>
+  <title>justinkirtz.com</title>
   <!-- Calcite Maps Bootstrap -->
   <link async rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.8.css">
   <link async rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.8.css">
@@ -19,7 +19,7 @@
   <!-- JHK Critical CSS  -->
   <link rel="stylesheet" href="assets/css/jhkcriticalcss.min.css">
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
   <!-- JHK JS Scripts -->
   <script type='text/javascript' src='assets/js/addalphatocolor.min.js'></script>
   <script type='text/javascript' src='assets/js/resettabulatortable.min.js'></script>
@@ -81,6 +81,8 @@
             aria-haspopup="true"><span class="esri-icon esri-icon-comment"></span> Map A Message</a></li> -->
         <li><a role="menuitem" tabindex="0" data-target="#panelMeasure" aria-haspopup="true"><span
               class="esri-icon esri-icon-polyline"></span> Measurement</a></li>
+        <li class="hidden" id='elevationProfileButton'><a role="menuitem" tabindex="0" data-target="#panelEleProfile" aria-haspopup="true"><span
+          class="esri-icon esri-icon-elevation-profile"></span> Elevation Profile</a></li>
         <li id='bookmarksWidgetListItem'><a role="menuitem" tabindex="0" data-target="#panelBookmarks"
             aria-haspopup="true"><span class="esri-icon esri-icon-bookmark"></span> My Favorite Cities</a></li>
         <li id='printWidgetListItem'><a role="menuitem" tabindex="0" data-target="#panelPrintWidget"
@@ -310,6 +312,22 @@
       <div id="collapseBookmarks" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBookmarks">
         <div class="panel-body">
           <div id='bookmarksDiv'></div>
+        </div>
+      </div>
+    </div>
+    <!-- Elevation Profile Panel -->
+    <div id="panelEleProfile" class="panel collapse">
+      <div id="headingeleProfile" class="panel-heading" role="tab">
+        <div class="panel-title">
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseeleProfile" aria-expanded="true"
+            aria-controls="collapseeleProfile"><span class="esri-icon esri-icon-elevation-profile"
+            aria-hidden="true"></span><span class="panel-label">Elevation Profile</span></a>
+          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelEleProfile"><span
+              class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <div id="collapseeleProfile" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingeleProfile">
+        <div class="panel-body" id='eleProfilePanelBody'>
         </div>
       </div>
     </div>
@@ -824,7 +842,7 @@
   <!-- dojoConfig -->
   <script type="text/javascript" src="assets/js/dojoConfig.min.js"></script>
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.24/"></script>
+  <script src="https://js.arcgis.com/4.23/"></script>
   <!-- main app JS files -->
   <script type="text/javascript" src="assets/js/jkapp.min.js"></script>
   <script type="text/javascript" src="assets/js/geometryquerylogic.min.js"></script>

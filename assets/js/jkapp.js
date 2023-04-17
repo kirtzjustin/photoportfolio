@@ -23,6 +23,7 @@ require([
   "esri/widgets/Popup",
   "esri/widgets/Editor",
   "esri/widgets/FeatureTable",
+  "esri/widgets/ElevationProfile",
   "esri/core/watchUtils",
   "esri/layers/ElevationLayer",
   "esri/layers/BaseElevationLayer",
@@ -45,6 +46,8 @@ require([
   "esri/widgets/AreaMeasurement2D",
   "esri/widgets/Sketch/SketchViewModel",
   "esri/widgets/Sketch",
+  "esri/widgets/ElevationProfile/ElevationProfileLineGround",
+  "esri/widgets/ElevationProfile/ElevationProfileViewModel",
   // "esri/rest/Locator",
   "esri/tasks/GeometryService",
   "esri/rest/support/ProjectParameters",
@@ -80,6 +83,7 @@ require([
   Popup,
   Editor,
   FeatureTable,
+  ElevationProfile,
   watchUtils,
   ElevationLayer,
   BaseElevationLayer,
@@ -102,6 +106,8 @@ require([
   AreaMeasurement2D,
   SketchViewModel,
   Sketch,
+  ElevationProfileLineGround,
+  ElevationProfileViewModel,
   // Locator,
   GeometryService,
   ProjectParameters,
@@ -258,8 +264,14 @@ require([
     attributeTable: null,
     attributeTableLayer: null,
     attributeTableFieldConfig: [],
-    highlights: []
+    highlights: [],
+    elevationProfileContainer: null,
+    elevationProfileWidget: null,
+    elevationProfileButton: null,
   }
+  
+  app.elevationProfileButton = document.getElementById('elevationProfileButton');
+  
   // graphics laye for sketch widget
   app.sketchWidgetGraphicsLayer = new GraphicsLayer({
     id: 'sketchWidgetGraphicsLayer'
@@ -319,11 +331,11 @@ require([
   });
   app.overviewMapBasemapToggle = new BasemapToggle({
     view: app.overviewMapView,
-    nextBasemap: 'streets'
+    nextBasemap: 'streets-vector'
   });
   app.overviewMapBasemapToggleSceneView = new BasemapToggle({
     view: app.overviewMapSceneView,
-    nextBasemap: 'streets'
+    nextBasemap: 'streets-vector'
   });
   app.overviewMapView.ui.add(app.overviewMapBasemapToggle, 'top-right');
   app.overviewMapScaleBar = new ScaleBar({
@@ -509,6 +521,17 @@ require([
     }
   };
 
+  app.elevationProfileContainer = document.getElementById('eleProfilePanelBody');
+ 
+    app.elevationProfileWidget = new ElevationProfile({
+      container: app.elevationProfileContainer,
+      profiles: [{
+        type: "ground",          // autocasts as new ElevationProfileLineGround(),
+        color: "red",            // display this profile in red
+        title: "World Elevation" // with a custom label
+      }]
+    });
+
   // wait for app.activeView to become ready, then
   watchUtils.whenOnce(app.activeView, "ready").then(function () {
     // assign element id/class names to app properties
@@ -544,11 +567,11 @@ require([
     app.basemapGallery.watch('activeBasemap', function (newValue) {
       try {
         if (newValue.title === 'Imagery with Labels' || newValue.title === "Imagery" || newValue.title === "Imagery Hybrid") {
-          app.overviewMap.basemap = 'streets';
+          app.overviewMap.basemap = 'streets-vector';
           app.overviewMapBasemapToggle.nextBasemap = 'hybrid';
         } else {
           app.overviewMap.basemap = 'hybrid';
-          app.overviewMapBasemapToggle.nextBasemap = 'streets';
+          app.overviewMapBasemapToggle.nextBasemap = 'streets-vector';
         }
       } catch (error) {
         console.log('Error message: ', error.message);
@@ -767,6 +790,8 @@ require([
       }
     });
 
+    
+    app.elevationProfileWidget.view = app.activeView;
     app.map.layers.reorder(app.queryGraphicsLayer, app.map.layers.items.length - 1);
     app.map.layers.reorder(app.sketchWidget_graphicsLayer, app.map.layers.items.length);
     // Query widget
@@ -1092,23 +1117,27 @@ require([
         });
 
         // add Zoom To Selected Features Button To Table Controls dropdown
-        if ($('.esri-feature-table__menu-accordion #zoomTo').length === 0) {
-          let tableControls = document.getElementsByClassName('esri-feature-table__menu-accordion').item(0);
-          let li = document.createElement('li');
-          let button = document.createElement('button');
-          let span = document.createElement('span');
-
-          li.id = 'zoomTo'
-          li.classList.add('esri-feature-table__menu-item')
-          li.setAttribute('role', 'menuitem')
-          button.classList.add('esri-feature-table__button', 'esri-feature-table__menu-item-label');
-          button.id = 'zoomToButton';
-          span.classList.add('esri-feature-table__menu-item-label__content');
-          span.innerHTML = 'Zoom To Selected Feature'
-          button.appendChild(span)
-          li.appendChild(button)
-          tableControls.appendChild(li)
-        }
+        // try {
+        //   if ($('.esri-feature-table__menu-accordion #zoomTo').length === 0) {
+        //     let tableControls = document.getElementsByClassName('esri-feature-table__menu-accordion').item(0);
+        //     let li = document.createElement('li');
+        //     // let button = document.createElement('button');
+        //     let span = document.createElement('span');
+        //     li.id = 'zoomTo'
+        //     li.classList.add('esri-feature-table__menu-item')
+        //     li.setAttribute('role', 'menuitem')
+        //     button.classList.add('esri-feature-table__button', 'esri-feature-table__menu-item-label');
+        //     button.id = 'zoomToButton';
+        //     span.classList.add('esri-feature-table__menu-item-label__content');
+        //     span.innerHTML = 'Zoom To Selected Feature'
+        //     button.appendChild(span)
+        //     li.appendChild(button)
+        //     tableControls.appendChild(li)
+        //   }
+        // } catch(err) {
+        //   console.log('Error message: ', err.message)
+        // }
+        
 
         // Get the FeatureLayer's layerView and listen for the table's selection-change event
         app.activeView.whenLayerView(app.attributeTableLayer).then(function (layerView) {
@@ -1135,7 +1164,7 @@ require([
             });
           });
 
-          document.getElementById('zoomToButton').addEventListener("click", zoomToSelectedFeature);
+          // document.getElementById('zoomToButton').addEventListener("click", zoomToSelectedFeature);
 
           // fires when "Zoom to selected feature" button is clicked
           function zoomToSelectedFeature() {
@@ -1238,7 +1267,7 @@ require([
         app.coordinateConversion.view = app.activeView;
         app.sketchWidget.view = app.activeView;
         app.querySketchWidget.view = app.activeView;
-
+        app.elevationProfileWidget.view = app.activeView;
         // redisplay 2D items
         app.bookmarksWidgetListItem.classList.remove('hidden');
         // app.editorWidgetListItem.classList.remove('hidden');
@@ -1246,6 +1275,7 @@ require([
         app.measureWidgetButtons2D.classList.remove('hidden');
         app.measureWidgetButtons3D.classList.add('hidden');
         app.screenshot3DSection.classList.add('hidden');
+        app.elevationProfileButton.classList.add('hidden');
 
         // reset custom bookmark counter back to 1
         app.bookmarkCounter = 1;
@@ -1567,23 +1597,28 @@ require([
           // attachmentsEnabled: true
         });
         // add Zoom To Selected Features Button To Table Controls dropdown
-        if ($('.esri-feature-table__menu-accordion #zoomTo').length === 0) {
-          let tableControls = document.getElementsByClassName('esri-feature-table__menu-accordion').item(0);
-          let li = document.createElement('li');
-          let button = document.createElement('button');
-          let span = document.createElement('span');
-
-          li.id = 'zoomTo'
-          li.classList.add('esri-feature-table__menu-item')
-          li.setAttribute('role', 'menuitem')
-          button.classList.add('esri-feature-table__button', 'esri-feature-table__menu-item-label');
-          button.id = 'zoomToButton';
-          span.classList.add('esri-feature-table__menu-item-label__content');
-          span.innerHTML = 'Zoom To Selected Feature'
-          button.appendChild(span)
-          li.appendChild(button)
-          tableControls.appendChild(li)
-        }
+        // try {
+        //   if ($('.esri-feature-table__menu-accordion #zoomTo').length === 0) {
+        //     let tableControls = document.getElementsByClassName('esri-feature-table__menu-accordion').item(0);
+        //       let li = document.createElement('li');
+        //       let button = document.createElement('button');
+        //       let span = document.createElement('span');
+        //       li.id = 'zoomTo';
+        //       li.classList.add('esri-feature-table__menu-item');
+        //       li.setAttribute('role', 'menuitem');
+        //       button.classList.add('esri-feature-table__button', 'esri-feature-table__menu-item-label');
+        //       button.id = 'zoomToButton';
+        //       span.classList.add('esri-feature-table__menu-item-label__content');
+        //       span.innerHTML = 'Zoom To Selected Feature';
+        //       button.appendChild(span);
+        //       li.appendChild(button);
+        //       tableControls.appendChild(li);
+            
+        //   }
+        // } catch(err) {
+        //   console.log('error message',err.message)
+        // }
+        
 
         // Get the FeatureLayer's layerView and listen for the table's selection-change event
         app.activeView.whenLayerView(app.attributeTableLayer).then(function (layerView) {
@@ -1610,7 +1645,7 @@ require([
             });
           });
 
-          document.getElementById('zoomToButton').addEventListener("click", zoomToSelectedFeature);
+          // document.getElementById('zoomToButton').addEventListener("click", zoomToSelectedFeature);
 
           // fires when "Zoom to selected feature" button is clicked
           function zoomToSelectedFeature() {
@@ -1711,6 +1746,7 @@ require([
         app.coordinateConversion.view = app.activeView;
         app.sketchWidget.view = app.activeView;
         app.querySketchWidget.view = app.activeView;
+        app.elevationProfileWidget.view = app.activeView;
 
         // hide bookmarks widget
         app.bookmarksWidget3dWarningText[0].innerHTML = "<p>Bookmarks widget is not supported in 3D.</p>";
@@ -1727,6 +1763,8 @@ require([
         app.printWidgetDiv.classList.add('hidden');
         app.elevationToggleDiv.classList.remove('hidden');
         app.clusterDiv.classList.add('hidden');
+        
+        app.elevationProfileButton.classList.remove('hidden');
 
         // if attribute table already exists, destroy it and recreate the attribute table div
         if (app.attributeTable) {
@@ -1745,23 +1783,27 @@ require([
         });
 
         // add Zoom To Selected Features Button To Table Controls dropdown
-        if ($('.esri-feature-table__menu-accordion #zoomTo').length === 0) {
-          let tableControls = document.getElementsByClassName('esri-feature-table__menu-accordion').item(0);
-          let li = document.createElement('li');
-          let button = document.createElement('button');
-          let span = document.createElement('span');
-
-          li.id = 'zoomTo'
-          li.classList.add('esri-feature-table__menu-item')
-          li.setAttribute('role', 'menuitem')
-          button.classList.add('esri-feature-table__button', 'esri-feature-table__menu-item-label');
-          button.id = 'zoomToButton';
-          span.classList.add('esri-feature-table__menu-item-label__content');
-          span.innerHTML = 'Zoom To Selected Feature'
-          button.appendChild(span)
-          li.appendChild(button)
-          tableControls.appendChild(li)
-        }
+        // try{
+        //   if ($('.esri-feature-table__menu-accordion #zoomTo').length === 0) {
+        //     let tableControls = document.getElementsByClassName('esri-feature-table__menu-accordion').item(0);
+        //     let li = document.createElement('li');
+        //     let button = document.createElement('button');
+        //     let span = document.createElement('span');
+        //     li.id = 'zoomTo'
+        //     li.classList.add('esri-feature-table__menu-item')
+        //     li.setAttribute('role', 'menuitem')
+        //     button.classList.add('esri-feature-table__button', 'esri-feature-table__menu-item-label');
+        //     button.id = 'zoomToButton';
+        //     span.classList.add('esri-feature-table__menu-item-label__content');
+        //     span.innerHTML = 'Zoom To Selected Feature'
+        //     button.appendChild(span)
+        //     li.appendChild(button)
+        //     tableControls.appendChild(li)
+        //   }
+        // }catch(err){
+        //     console.log('Error message', err.message)
+        // }
+        
 
         // Get the FeatureLayer's layerView and listen for the table's selection-change event
         app.activeView.whenLayerView(app.attributeTableLayer).then(function (layerView) {
@@ -1788,7 +1830,7 @@ require([
             });
           });
 
-          document.getElementById('zoomToButton').addEventListener("click", zoomToSelectedFeature);
+          // document.getElementById('zoomToButton').addEventListener("click", zoomToSelectedFeature);
 
           // fires when "Zoom to selected feature" button is clicked
           function zoomToSelectedFeature() {
