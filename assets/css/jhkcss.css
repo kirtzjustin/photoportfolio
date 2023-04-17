@@ -292,28 +292,28 @@
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #f14545;
+  color: white;
 }
 .calcite-panels .panel > .panel-heading > div:hover .panel-toggle {
   -webkit-transition: color 0.15s linear;
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: white;
+  color: #f14545;
 }
 .calcite-panels .panel > .panel-heading > div:hover .panel-close {
   -webkit-transition: color 0.15s linear;
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: white;
+  color: #f14545;
 }
 .calcite-panels .panel > .panel-heading > div > .panel-close {
   -webkit-transition: color 0.15s linear;
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #f14545;
+  color: white;
 }
 
 .calcite-map div div div div div div div .esri-widget--button,
