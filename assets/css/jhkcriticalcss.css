@@ -43,7 +43,9 @@ body {
   z-index: 0;
   pointer-events: none;
 }
-
+.btn-link{
+  color:white;
+}
 /* SPLASH SCREEN STYLING */
 #splashDiv {
   position: absolute;
