@@ -566,7 +566,7 @@ require([
     app.basemapGallery.view = app.activeView;
     app.basemapGallery.watch('activeBasemap', function (newValue) {
       try {
-        if (newValue.title === 'Imagery with Labels' || newValue.title === "Imagery" || newValue.title === "Imagery Hybrid") {
+        if (newValue.title === 'Imagery with Labels' || newValue.title === "Imagery" || newValue.title === "Imagery Hybrid" || newValue.title === "Firefly Imagery Hybrid" || newValue.title === "NAIP Imagery Hybrid") {
           app.overviewMap.basemap = 'streets-vector';
           app.overviewMapBasemapToggle.nextBasemap = 'hybrid';
         } else {
