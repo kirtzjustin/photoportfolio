@@ -112,11 +112,4 @@ body {
   left: 75px;
 }
 
-.calcite-maps .esri-widget .esri-widget--button, .calcite-maps .esri-widget.esri-widget--button span {
-  color:white;
-}
-
-.calcite-maps .esri-widget .esri-widget--button, .calcite-maps .esri-widget.esri-widget--button:hover span {
-  color:#f14545 !important;
-}
 /*# sourceMappingURL=jhkcriticalcss.css.map */
