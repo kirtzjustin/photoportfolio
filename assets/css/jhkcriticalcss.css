@@ -3,8 +3,9 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  color: #D79922;
-  font-family: "Oswald", "Arial", "sans-serif" !important;
+  /* color: #ff6969; */
+  color: white;
+  font-family: "Josefin Sans", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
 /* overview map styles */
@@ -69,7 +70,7 @@ body {
 
 #splashDivTitle {
   font-size: 32px;
-  color: #D79922;
+  color: #ff6969;
 }
 
 #splashDivTechUsed {
