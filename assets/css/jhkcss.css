@@ -37,7 +37,7 @@
 #addCustomBookmark {
   padding: 5px;
   height: 20px;
-  color: #ff6969;
+  color: #f14545;
 }
 #addCustomBookmark span {
   cursor: pointer;
@@ -49,7 +49,7 @@
 
 /* coordinate conversion styling */
 #panelCoordinateConversion #collapseCoordinateConversion div #coordinateConversionDiv div ul li .esri-coordinate-conversion__select-row {
-  color: #ff6969;
+  color: #f14545;
   width: 40vh;
 }
 
@@ -155,14 +155,14 @@
   opacity: 0.75;
 }
 #jhknav .calcite-dropdown > a > div > span {
-  /* background-color: #ff6969; */
+  /* background-color: #f14545; */
   background-color: white;
 }
 #jhknav .calcite-title-main {
   font-weight: bold;
 }
 #jhknav .calcite-title > span {
-  /* color: #ff6969; */
+  /* color: #f14545; */
   color: white;
 }
 #jhknav #mapViewNav,
@@ -171,7 +171,7 @@
   -ms-transition: background-color 0.15s linear;
   -o-transition: background-color 0.15s linear;
   transition: background-color 0.15s linear;
-  /* color: #ff6969; */
+  /* color: #f14545; */
   color: white;
   font-weight: bold;
 }
@@ -231,8 +231,8 @@
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
-  border-left: 3px solid #ff6969;
+  color: #f14545;
+  border-left: 3px solid #f14545;
   cursor: pointer;
 }
 #jhknav:hover {
@@ -292,7 +292,7 @@
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 .calcite-panels .panel > .panel-heading > div:hover .panel-toggle {
   -webkit-transition: color 0.15s linear;
@@ -313,7 +313,7 @@
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 
 .calcite-map div div div div div div div .esri-widget--button,
@@ -331,7 +331,8 @@
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: #5d5c61;
-  color: #ff6969;
+  color: white;
+  opacity: .75;
 }
 .calcite-map div div div div div div div .esri-widget--button:hover .esri-icon,
 .calcite-map div div div div div div div div .esri-widget--button:hover .esri-icon {
@@ -377,7 +378,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 
 #areaButton,
@@ -394,7 +395,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
   background-color: transparent;
   display: inline-flex;
 }
@@ -433,7 +434,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 #measureOutput3D label,
 #measureOutput3D .esri-area-measurement-3d__measurement-item-title,
 #measureOutput3D .esri-direct-line-measurement-3d__measurement-item-title {
-  color: #ff6969;
+  color: #f14545;
 }
 #measureOutput2D select,
 #measureOutput2D .esri-area-measurement-3d__measurement-item-value,
@@ -464,7 +465,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  border-left: 3px solid #ff6969;
+  border-left: 3px solid #f14545;
   background-color: white;
 }
 .esri-basemap-gallery__item .esri-basemap-gallery__item-title {
@@ -479,7 +480,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 
 .esri-coordinate-conversion__select-primary,
@@ -494,7 +495,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 
 #coordinateConversionDiv div > .esri-coordinate-conversion__heading {
@@ -512,7 +513,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #coordinateConversionDiv div > .esri-coordinate-conversion__heading .esri-coordinate-conversion__back-button:hover span {
   -webkit-transition: font-size 0.15s linear;
@@ -540,7 +541,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #coordinateConversionDiv div > div > ul > li:hover span {
   -webkit-transition: font-size 0.15s linear;
@@ -568,7 +569,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #coordinateConversionDiv div > div > .esri-coordinate-conversion__settings-group-horizontal > div:hover span {
   -webkit-transition: font-size 0.15s linear;
@@ -603,7 +604,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 
 #coordinateConversionDiv > div > .esri-coordinate-conversion__conversion-list > li > ul > li > span {
@@ -634,7 +635,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #coordinateConversionDiv > div > .esri-coordinate-conversion__conversion-list > li > ul > li:hover span {
   -webkit-transition: font-size 0.15s linear;
@@ -655,7 +656,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   background-color: white;
 }
 #editorDiv h4 {
-  color: #ff6969;
+  color: #f14545;
 }
 #editorDiv .esri-editor__feature-list-item {
   -webkit-transition: border-left-color 0.15s linear;
@@ -684,9 +685,9 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
   border-left-width: 3px;
-  border-left-color: #ff6969;
+  border-left-color: #f14545;
   border-left-style: solid;
-  color: #ff6969;
+  color: #f14545;
 }
 #editorDiv .esri-editor__message {
   color: #1A2930;
@@ -695,7 +696,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   background-color: white;
 }
 #editorDiv .esri-feature-form__label {
-  color: #ff6969;
+  color: #f14545;
 }
 #editorDiv .esri-feature-form__label input {
   color: #1A2930;
@@ -724,8 +725,8 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  border-left: 3px solid #ff6969;
-  color: #ff6969;
+  border-left: 3px solid #f14545;
+  color: #f14545;
 }
 #editorDiv .esri-editor__back-button span {
   -webkit-transition: font-size 0.15s linear;
@@ -735,7 +736,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 }
 #editorDiv .esri-editor__back-button {
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #editorDiv .esri-editor__back-button:hover span {
   -webkit-transition: font-size 0.15s linear;
@@ -753,7 +754,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 }
 
 #layerListDiv .esri-layer-list__item-title {
-  color: #ff6969;
+  color: #f14545;
 }
 #layerListDiv .esri-layer-list__item-actions-list {
   background-color: white;
@@ -780,15 +781,15 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  border-left: 3px solid #ff6969;
-  color: #ff6969;
+  border-left: 3px solid #f14545;
+  color: #f14545;
 }
 #layerListDiv .esri-icon-non-visible {
   color: red;
 }
 
 #filterToolSelectMenuLabel {
-  color: #ff6969;
+  color: #f14545;
 }
 
 #filterToolSelectMenu {
@@ -807,19 +808,19 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  border-left: 3px solid #ff6969;
+  border-left: 3px solid #f14545;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 
 #panelPrintWidget #printWidgetDiv__layoutTab,
 #panelPrintWidget #printWidgetDiv__mapOnlyTab {
-  color: #ff6969;
+  color: #f14545;
 }
 #panelPrintWidget .esri-print__form-section-container > label,
 #panelPrintWidget .esri-print__width-container > label,
 #panelPrintWidget .esri-print__height-container > label {
-  color: #ff6969;
+  color: #f14545;
 }
 #panelPrintWidget .esri-print__form-section-container > label > input,
 #panelPrintWidget .esri-print__form-section-container > label > select,
@@ -836,7 +837,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: font-size 0.15s linear;
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 #panelPrintWidget .esri-print__swap-button:hover {
   -webkit-transition: font-size 0.15s linear;
@@ -863,7 +864,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 }
 
 #panelSketch label {
-  color: #ff6969;
+  color: #f14545;
 }
 #panelSketch select {
   color: #1A2930;
@@ -874,7 +875,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #panelSketch .esri-sketch__button:hover {
   -webkit-transition: font-size 0.15s linear;
@@ -905,7 +906,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 #panelQuery .card-header {
   width: 100%;
   background-color: #5d5c61;
-  color: #ff6969;
+  color: #f14545;
 }
 #panelQuery .card-header:hover {
   -webkit-transition: background-color 0.15s linear;
@@ -921,7 +922,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #panelQuery .esri-sketch__button:hover {
   -webkit-transition: font-size 0.15s linear;
@@ -951,7 +952,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #panelQuery #zoomToExtentOfQueryPoly:hover span,
 #panelQuery #clearHighlightedFeatures:hover span {
@@ -984,7 +985,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
   display: inline-flex;
 }
 #panelQuery #resetChartButton:hover span {
@@ -1021,7 +1022,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -o-transition: font-size 0.15s linear;
   transition: font-size 0.15s linear;
   background-color: transparent;
-  color: #ff6969;
+  color: #f14545;
 }
 #panelQuery #downloadXlsx:hover,
 #panelQuery #downloadCsv:hover,
@@ -1074,7 +1075,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 }
 
 .esri-popup__header-title {
-  color: #ff6969;
+  color: #f14545;
 }
 .esri-popup__header-title:hover {
   background-color: transparent;
@@ -1090,7 +1091,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #ff6969;
+  color: #f14545;
 }
 .esri-search__submit-button:hover,
 .esri-search__clear-button:hover {
@@ -1124,7 +1125,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
 }
 
 .screenshot_label {
-  color: #ff6969;
+  color: #f14545;
 }
 
 .esri-ui {
