@@ -1091,7 +1091,7 @@ div > div > div > div > div > #coordinateConversionDiv > div > div > .esri-selec
   -ms-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  color: #f14545;
+  color: white;
 }
 .esri-search__submit-button:hover,
 .esri-search__clear-button:hover {
