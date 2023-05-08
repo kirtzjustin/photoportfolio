@@ -135,7 +135,7 @@
           </div>
           <!-- Current Gear Section -->
           <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
-            <img src="images/fulls/me_ronda.jpg" alt="Image" class="img-fluid mb-4" style="width:75%;">
+            <img id='aboutMeImage' src="images/fulls/me_ronda.jpg" alt="Image" class="img-fluid mb-4" style="width:75%;">
           </div>
           <!-- Travel Timeline Section -->
           <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
@@ -187,6 +187,16 @@
     </div>  
   </div>
 
+  <script>
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
+    }
+
+    let aboutMeImage = document.getElementById('aboutMeImage');
+    aboutMeImage.src = 'images/fulls/aboutmeimages/' + getRandomInt(1, 7) + '.jpg';
+  </script>
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="assets/js/jquery-ui.js"></script>
