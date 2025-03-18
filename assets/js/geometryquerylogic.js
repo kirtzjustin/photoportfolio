@@ -29,15 +29,15 @@ function formatDate(date) {
 function queryLayerViewStats(buffer) {
 
     // MAKE SURE TO CONVERT ANY DATETIME FIELDS TO UTC TIME ZONE VIA THE ARCMAP TOOL 'CONVERT TIME ZONE' IN THE DATA MANAGEMENT TOOLBOX IN ARCTOOLBOX
-    let dataFields = ["Google Map", "Location", "Published", "Title", "Updated"];
+    let dataFields = ["google_map", "location", "date", "Comment", "FID"];
 
     // tableData is used for tabulator table
     let tableData = [];
 
     let june18 = 0, july18 = 0, aug18 = 0, sep18 = 0, oct18 = 0, nov18 = 0, dec18 = 0, jan19 = 0, feb19 = 0, mar19 = 0, may19 = 0;
 
-    // let statsToQuery = ['avg']; 
- 
+    // let statsToQuery = ['avg'];
+
     // let statDef = [];
     // // create stats definition array
     // for (let i = 0; i < statsToQuery.length; i++) {
@@ -64,15 +64,14 @@ function queryLayerViewStats(buffer) {
 
             for (var i in response.features) {
                 // create array of attribute objects for tabulator table
-                let stringifiedJSON = JSON.parse(response.features[i].attributes.Location)
-                
+                let stringifiedJSON = JSON.parse(response.features[i].attributes.location)
                 for(let x in stringifiedJSON) {
                     response.features[i].attributes[x] = stringifiedJSON[x]
                 }
                 tableData.push(response.features[i].attributes);
                 // GETS COUNT OF FEATURES BROKEN OUT BY SPECIFIED ATTRIBUTE NAME FROM DATAFIELDS ARRAY
-                if (response.features[i].attributes.Published) {
-                    let published = response.features[i].attributes.Published;
+                if (response.features[i].attributes.date) {
+                    let published = response.features[i].attributes.date;
                     let date = new Date(published)
                     let formattedDate = formatDate(date);
                     switch (formattedDate) {
@@ -115,6 +114,7 @@ function queryLayerViewStats(buffer) {
                 }
             }
 
+
             totalSelectedFeatures = response.features.length;
             let updatedDataCount = [
                 june18,
@@ -152,12 +152,12 @@ function updateCharts(
     let titleCount = response.titleCount;
     let tableData;
     // converts JSON date to formatted date for tabulator table
-    for (var dict in response.tableData) {
-        let formattedPublishedDate = new Date(response.tableData[dict]['Published']);
-        let formattedUpdatedDate = new Date(response.tableData[dict]['Updated']);
-        response.tableData[dict]['Published'] = (formattedPublishedDate.getMonth() + 1).toString() + '/' + (formattedPublishedDate.getDate()).toString() + '/' + (formattedPublishedDate.getFullYear()).toString()
-        response.tableData[dict]['Updated'] = (formattedUpdatedDate.getMonth() + 1).toString() + '/' + (formattedUpdatedDate.getDate()).toString() + '/' + (formattedUpdatedDate.getFullYear()).toString()
-    }
+    // for (var dict in response.tableData) {
+    //     let formattedPublishedDate = new Date(response.tableData[dict]['Published']);
+    //     let formattedUpdatedDate = new Date(response.tableData[dict]['Updated']);
+    //     response.tableData[dict]['Published'] = (formattedPublishedDate.getMonth() + 1).toString() + '/' + (formattedPublishedDate.getDate()).toString() + '/' + (formattedPublishedDate.getFullYear()).toString()
+    //     response.tableData[dict]['Updated'] = (formattedUpdatedDate.getMonth() + 1).toString() + '/' + (formattedUpdatedDate.getDate()).toString() + '/' + (formattedUpdatedDate.getFullYear()).toString()
+    // }
     tableData = response.tableData;
 
     // make count chart
@@ -190,7 +190,7 @@ function updateCharts(
                             family: "'Quicksand', 'Arial', sans-serif"
                         }
                     },
-                    
+
                     backgroundColor: ["rgb(255, 255, 120)", "rgb(255, 180, 120)", "rgb(80, 255, 120)", "rgb(190, 180, 235)", 'rgb(255, 140, 0)', 'rgb(54,171,51)', 'rgb(190, 26, 235)', 'rgb(178, 178, 178)', 'rgb(45,211,21)', 'rgb(77,22,222)', 'rgb(90,0,175)'],
                     borderColor: ["rgb(255, 255, 255)"],
                     borderWidth: 1,
@@ -203,7 +203,7 @@ function updateCharts(
                 legend: {
                     position: "bottom",
                     labels: {
-                        
+
                         fontColor: 'rgb(23, 43, 94)',
                         fontFamily: "'Quicksand', 'Arial', sans-serif"
                     },
@@ -214,7 +214,7 @@ function updateCharts(
                 title: {
                     display: true,
                     text: titleCount,
-                    
+
                     fontColor: 'rgb(0, 138, 80)',
                     fontFamily: "'Quicksand', 'Arial', sans-serif"
                 },
@@ -233,7 +233,7 @@ function updateCharts(
                     callbacks: {
                         // This formats the label to display both number of features and percentage of total features
                         label: (tooltipItem, data) => {
-                            // 'label' is line with colorded box legend                          
+                            // 'label' is line with colorded box legend
                             let dataIndex = tooltipItem.index;
                             let value = data.datasets[0].data[dataIndex];
                             return [value + ' Features'];
@@ -298,7 +298,7 @@ function updateCharts(
     });
 
     //define attribute table
-    app.statsTable = new Tabulator("#jhkTable", { 
+    app.statsTable = new Tabulator("#jhkTable", {
         data: tableData,
         height: 450,
         layout: "fitDataFill",
@@ -320,7 +320,7 @@ function updateCharts(
             app.activeView.whenLayerView(app.queryLayer).then(function (layerView) {
 
                 let query = app.queryLayer.createQuery();
-                query.where = "Title = " + "'" + row._row.data.Title + "'";
+                query.where = "FID = " + "'" + row._row.data.FID + "'";
                 query.outSpatialReference = app.activeView.spatialReference;
                 query.returnGeometry = true;
 
@@ -332,10 +332,10 @@ function updateCharts(
                         zoom: 20
                     });
 
-                    app.activeView.popup.open({
-                        location: selectedFeature.geometry,
-                        features: results.features
-                    });
+                    // app.activeView.popup.open({
+                    //     location: selectedFeature.geometry,
+                    //     features: results.features
+                    // });
                 });
             });
         },
@@ -344,7 +344,7 @@ function updateCharts(
             app.activeView.whenLayerView(app.queryLayer).then(function (layerView) {
 
                 let query = app.queryLayer.createQuery();
-                query.where = "Title = " + "'" + row._row.data.Title + "'";
+                query.where = "FID = " + "'" + row._row.data.FID + "'";
                 query.outSpatialReference = app.activeView.spatialReference;
                 query.returnGeometry = true;
 
@@ -361,7 +361,7 @@ function updateCharts(
             app.activeView.graphics.removeAll();
         },
         initialSort: [{
-                column: "Title",
+                column: "name",
                 dir: "asc"
             }, //sort by this first
             // { column: "SAMPLETYPE", dir: "asc" }, //then sort by this second
@@ -376,19 +376,18 @@ function updateCharts(
                 frozen: true
             },
             {
-                title: "Title",
-                field: "Title",
-                sorter: "string",
-                frozen: true,
-                download: false,
-                topCalc: "count",
-                // // editor: "input",
-                headerFilter: true,
-                headerFilterPlaceholder: 'Filter Column'
+                title: "FID",
+                field: "FID",
+                sorter: "number",
+                frozen: false,
+                // topCalc: "count",
+                // editor: "input",
+                headerFilter: false,
+                //headerFilterPlaceholder: 'Filter Column'
             },
             {
                 title: "Business Name",
-                field: "Business Name",
+                field: "name",
                 sorter: "string",
                 frozen: false,
                 // topCalc: "count",
@@ -398,7 +397,7 @@ function updateCharts(
             },
             {
                 title: "Address",
-                field: "Address",
+                field: "address",
                 sorter: "string",
                 frozen: false,
                 // topCalc: "count",
@@ -408,7 +407,7 @@ function updateCharts(
             },
             {
                 title: "Country Code",
-                field: "Country Code",
+                field: "country_code",
                 sorter: "string",
                 frozen: false,
                 // topCalc: "count",
@@ -418,7 +417,7 @@ function updateCharts(
             },
             {
                 title: "Google Map",
-                field: "Google_Map",
+                field: "google_map",
                 sorter: "string",
                 frozen: false,
                 // topCalc: "count",
@@ -426,24 +425,7 @@ function updateCharts(
                 headerFilter: true,
                 headerFilterPlaceholder: 'Filter Column'
             },
-            {
-                title: "Published",
-                field: "Published",
-                sorter: "string",
-                frozen: false,
-                // editor: "input",
-                headerFilter: true,
-                headerFilterPlaceholder: 'Filter Column'
-            },
-            {
-                title: "Updated",
-                field: "Updated",
-                sorter: "string",
-                // editor: "input",
-                headerFilter: true,
-                frozen: false,
-                headerFilterPlaceholder: 'Filter Column'
-            }
+
         ]
     });
 
