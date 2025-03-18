@@ -11,8 +11,8 @@ body {
 /* overview map styles */
 #overviewMap {
   position: absolute;
-  bottom: 10%;
-  left: 1%;
+  bottom: 4%;
+  left: 4%;
   width: 300px;
   height: 200px;
   border: 1px solid black;
@@ -111,5 +111,66 @@ body {
 .calcite-panels {
   left: 75px;
 }
+#mapViewDiv {
+  height: 100%;
+}
 
+#header-title {
+  margin-left: 0.6rem;
+    margin-right: 1rem;
+}
+#myTravelMap{
+  vertical-align: middle;
+  font-size: 32px;
+}
+#titleBlockImg{
+  vertical-align:middle;
+}
+#hyperlinkHome{
+  font-size:15px;
+}
+#hyperlinkHomeLink{
+  text-decoration: none;
+}
+#panelSettings,
+#panelMeasure,
+#panelLegend{
+  max-width: 225px;
+  min-width: 225px;
+}
+
+#panelLayerList{
+  max-width: 250px;
+  min-width: 250px;
+}
+
+#panelBookmarks,
+#panelPrintWidget,
+#panelEleProfile{
+  max-width: 260px;
+  min-width: 260px;
+}
+
+#panelSketch{
+  max-width: 450px;
+  min-width: 450px;
+}
+
+#panelBasemaps{
+  max-width: 225px;
+  min-width: 225px;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+#panelAttributeTable{
+  max-width: 600px;
+  min-width: 600px;
+  min-height: 500px;
+  max-height: 500px;
+}
+#attributeTablePanelBody{
+  height: 100%;
+  width: 100%;
+}
 /*# sourceMappingURL=jhkcriticalcss.css.map */
