@@ -376,6 +376,16 @@ function updateCharts(
                 frozen: true
             },
             {
+                title: "Business Name",
+                field: "name",
+                sorter: "string",
+                frozen: true,
+                // topCalc: "count",
+                // editor: "input",
+                headerFilter: true,
+                headerFilterPlaceholder: 'Filter Column'
+            },
+            {
                 title: "FID",
                 field: "FID",
                 sorter: "number",
@@ -384,16 +394,6 @@ function updateCharts(
                 // editor: "input",
                 headerFilter: false,
                 //headerFilterPlaceholder: 'Filter Column'
-            },
-            {
-                title: "Business Name",
-                field: "name",
-                sorter: "string",
-                frozen: false,
-                // topCalc: "count",
-                // editor: "input",
-                headerFilter: true,
-                headerFilterPlaceholder: 'Filter Column'
             },
             {
                 title: "Address",

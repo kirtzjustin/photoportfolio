@@ -467,7 +467,9 @@ require([
         printServiceUrl: "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
     });
 
-    app.querySketchWidget = new Sketch({});
+    app.querySketchWidget = new Sketch({
+        creationMode: "single"
+    });
 
     // app.editorWidget = new Editor({
     //   container: 'editorDiv'

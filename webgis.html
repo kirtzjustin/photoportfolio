@@ -505,94 +505,80 @@
           </div>
           <div class="panel-body" id="chartPanelBody">
             <div id="chartDiv" class="chart-container" style="position: relative">
-              <div id="countAccordion">
-                <div class="card stats-card">
-                  <div class="card-header btn" id="headingTable" data-toggle="collapse" data-target="#collapseTable"
-                    aria-expanded="true" aria-controls="collapseTable" title="Table of all features in view"><i
-                      class="fas fa-table panelChart_icon"></i> Selected Features</div>
-                  <div id="collapseTable" class="collapse in" aria-labelledby="headingTable"
-                    data-parent="#countAccordion">
-                    <div class="card-body">
-                      <div id="tableDiv">
-                        <div id="tableControlsContainer">
-                          <div id="downloadtablebuttons">
-                            <div id="downloadXlsx" class="esri-component esri-widget--button esri-widget btn-circle"
-                              title="Download .xlsx file">
-                              <i class="fas fa-file-excel"></i>
-                            </div>
-                            <div id="downloadCsv" class="esri-component esri-widget--button esri-widget btn-circle"
-                              title="Download .csv file">
-                              <i class="fas fa-file-csv"></i>
-                            </div>
-                            <div id="filterClear" class="esri-component esri-widget--button esri-widget btn-circle"
-                              title="Clear filter criteria">
-                              <i class="fas fa-undo-alt"></i>
-                            </div>
-                          </div>
-                          <div id="tableFilters" class="table-controls">
-                            <!--populates filter dropdown menus in table widget -->
-                            <!-- <span>
-                                                    <label>Field</label>
-                                                    <select id="filter-field" class="esri-select" title="Select field to filter by">
-                                                        <option></option>
-                                                        <option value="pH">pH (Q1)</option>
-                                                        <option value="pH_1">pH (Q2)</option>
-                                                        <option value="pH_12">pH (Q3)</option>
-                                                        <option value="pH_12_13">pH (Q4)</option>
-                                                    </select>
-                                                </span>
-                                                <span>
-                                                    <label>Type</label>
-                                                    <select id="filter-type" class="esri-select" title="Select comparison type">
-                                                        <option></option>
-                                                        <option value="like" selected>like</option>
-                                                        <option value="=">=</option>
-                                                        <option value="<">&lt;</option>
-                                                        <option value="<=">&lt;=</option>
-                                                        <option value=">">&gt;</option>
-                                                        <option value=">=">&gt;=</option>
-                                                        <option value="!=">!=</option>
-                                                    </select>
-                                                </span>
-                                                <span><label>Value</label> <input id="filter-value" type="text"
-                                                        placeholder="Filter Value" title="Enter a value to filter by"
-                                                        class="input-search"></span>
-                                                <span> -->
-                            <label id="groupByFilterText">Group Results By</label>
-                            <select id="groupByFilter" class="esri-select" title="Select group results by field">
-                              <option></option>
-                              <option value="Country Code">Country</option>
-                              <option value="Published">Date Added</option>
-                              <option value="Updated">Date Updated</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div id="jhkTable"></div>
+              <!-- REMOVE AND TURN INTO BLOCK -->
+              <calcite-block collapsible open heading="Selected Features Table" description=""
+              icon-start="table">
+              <calcite-notice open>
+                <div slot="message"><div id="tableDiv">
+                  <div id="tableControlsContainer">
+                    <div id="downloadtablebuttons">
+                      <div id="downloadXlsx" class="esri-component esri-widget--button esri-widget btn-circle"
+                        title="Download .xlsx file">
+                        <i class="fas fa-file-excel"></i>
                       </div>
-                      <div id="resetChartButton"
-                        class="resetChart esri-component esri-widget--button esri-widget btn-circle" title="Reset Table"
-                        onclick="resetTabulatorTable()">
-                        <span class="esri-icon-refresh"></span>
+                      <div id="downloadCsv" class="esri-component esri-widget--button esri-widget btn-circle"
+                        title="Download .csv file">
+                        <i class="fas fa-file-csv"></i>
                       </div>
-                      <p id="resetChartButtonText">Reset Chart</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card stats-card">
-                  <div class="card-header btn" id="headingCount" data-toggle="collapse" data-target="#collapseCountChart"
-                    aria-expanded="true" aria-controls="collapseCountChart" title="Display feature count pie chart"><i
-                      class="fas fa-chart-pie panelChart_icon"></i> Selected Features |
-                    Date Added</div>
-                  <div id="collapseCountChart" class="collapse in" aria-labelledby="headingCount"
-                    data-parent="#countAccordion">
-                    <div class="card-body">
-                      <div class="chart-container">
-                        <canvas class="statsCanvas" id="canvasCount"></canvas>
+                      <div id="filterClear" class="esri-component esri-widget--button esri-widget btn-circle"
+                        title="Clear filter criteria">
+                        <i class="fas fa-undo-alt"></i>
                       </div>
                     </div>
+                    <div id="tableFilters" class="table-controls">
+                      <!--populates filter dropdown menus in table widget -->
+                      <!-- <span>
+                                              <label>Field</label>
+                                              <select id="filter-field" class="esri-select" title="Select field to filter by">
+                                                  <option></option>
+                                                  <option value="pH">pH (Q1)</option>
+                                                  <option value="pH_1">pH (Q2)</option>
+                                                  <option value="pH_12">pH (Q3)</option>
+                                                  <option value="pH_12_13">pH (Q4)</option>
+                                              </select>
+                                          </span>
+                                          <span>
+                                              <label>Type</label>
+                                              <select id="filter-type" class="esri-select" title="Select comparison type">
+                                                  <option></option>
+                                                  <option value="like" selected>like</option>
+                                                  <option value="=">=</option>
+                                                  <option value="<">&lt;</option>
+                                                  <option value="<=">&lt;=</option>
+                                                  <option value=">">&gt;</option>
+                                                  <option value=">=">&gt;=</option>
+                                                  <option value="!=">!=</option>
+                                              </select>
+                                          </span>
+                                          <span><label>Value</label> <input id="filter-value" type="text"
+                                                  placeholder="Filter Value" title="Enter a value to filter by"
+                                                  class="input-search"></span>
+                                          <span> -->
+                      <label id="groupByFilterText">Group Results By</label>
+                      <select id="groupByFilter" class="esri-select" title="Select group results by field">
+                        <option></option>
+                        <option value="Country Code">Country</option>
+                        <option value="Published">Date Added</option>
+                        <option value="Updated">Date Updated</option>
+                      </select>
+                    </div>
                   </div>
+                  <div id="jhkTable"></div>
                 </div>
-              </div>
+                <div id="resetChartButton"
+                  class="resetChart esri-component esri-widget--button esri-widget btn-circle" title="Reset Table"
+                  onclick="resetTabulatorTable()">
+                  <span class="esri-icon-refresh"></span>
+                </div>
+                <p id="resetChartButtonText">Reset Chart</p></div>
+            </calcite-notice>
+          </calcite-block>
+          <calcite-block collapsible open heading="Date Added Pie Chart" description=""
+              icon-start="pie-chart">
+              <calcite-notice open>
+                  <div slot="message"><canvas class="statsCanvas" id="canvasCount"></canvas></div>
+              </calcite-notice>
+          </calcite-block>
             </div>
           </div>
         </div>
