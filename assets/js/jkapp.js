@@ -517,7 +517,7 @@ require([
         ],
     });
 
-    // wait for app.activeView to become ready, then
+    // wait for app.activeView to become ready
     reactiveUtils
         .whenOnce(() => app.activeView.ready)
         .then(() => {
