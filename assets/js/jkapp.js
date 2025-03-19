@@ -274,6 +274,7 @@ require([
             id: "701743de5dfe42f5aa4fd06e185eb322",
         },
         layers: [app.sketchWidgetGraphicsLayer, app.queryGraphicsLayer],
+        ground: "world-elevation"
     });
 
     // overview map and map/scene views
@@ -1090,6 +1091,7 @@ require([
                         layer: app.attributeTableLayer,
                         fieldConfigs: app.attributeTableFieldConfig,
                         container: document.getElementById("attributeTable"),
+                        view: app.activeView
                         // attachmentsEnabled: true
                     });
 
@@ -1208,7 +1210,7 @@ require([
                     app.activeWidget = null;
                 }
             } catch (e) {
-                console.log("Error message here: ", e.message);
+                console.log("Error message: ", e.message);
             }
         };
 
@@ -2777,7 +2779,7 @@ require([
                         app.coordinateConversion.view = app.activeView;
                         app.sketchWidgetSketchViewModel.view = app.activeView;
                         app.sketchWidget.view = app.activeView;
-                        app.attributeTable.view = app.activeView;
+                        //app.attributeTable.view = app.activeView;
                         app.elevationProfileWidget.view = app.activeView;
                         app.layerList.view = app.activeView;
                     } catch (error) {
@@ -2826,24 +2828,28 @@ require([
             app.switchButton.icon = "map";
             app.switchButton.text = "Toggle Map To 2D View";
             app.switchButton.title = "Toggle Map To 2D View";
+
             reactiveUtils
                 .whenOnce(() => app.activeView.ready)
                 .then(() => {
                     try {
+
                         app.legend.view = app.activeView;
                         app.basemapGallery.view = app.activeView;
                         app.searchWidgetNav.view = app.activeView;
                         //app.scaleBar.view = app.activeView;
+
                         app.track.view = app.activeView;
                         app.home.view = app.activeView;
                         app.coordinateConversion.view = app.activeView;
                         app.sketchWidgetSketchViewModel.view = app.activeView;
                         app.sketchWidget.view = app.activeView;
-                        app.attributeTable.view = app.activeView;
+                        //app.attributeTable.view = app.activeView;
                         app.elevationProfileWidget.view = app.activeView;
+
                         app.layerList.view = app.activeView;
                     } catch (error) {
-                        console.log("Error message: ", error.message);
+                        console.log("Error message sdf: ", error.message);
                     }
                 })
                 .then(function () {

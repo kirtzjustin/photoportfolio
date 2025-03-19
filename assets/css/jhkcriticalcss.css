@@ -145,10 +145,14 @@ body {
 }
 
 #panelBookmarks,
-#panelPrintWidget,
-#panelEleProfile{
+#panelPrintWidget{
   max-width: 260px;
   min-width: 260px;
+}
+
+#panelEleProfile{
+  max-width: 400px;
+  min-width: 400px;
 }
 
 #panelSketch{
