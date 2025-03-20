@@ -34,8 +34,7 @@ require([
     "esri/widgets/AreaMeasurement2D",
     "esri/widgets/Sketch/SketchViewModel",
     "esri/widgets/Sketch",
-    // "esri/rest/Locator",
-    "esri/tasks/GeometryService",
+    "esri/rest/geometryService",
     "esri/rest/support/ProjectParameters",
     "esri/widgets/Measurement",
     // Calcite-maps
@@ -81,8 +80,7 @@ require([
     AreaMeasurement2D,
     SketchViewModel,
     Sketch,
-    // Locator,
-    GeometryService,
+    geometryService,
     ProjectParameters,
     Measurement
 ) {
@@ -242,7 +240,8 @@ require([
         activeWidget: null,
         nextWidget: null,
         switchButton: null,
-        bookmarksbutton: null
+        bookmarksbutton: null,
+        printbutton: null
     };
 
     app.elevationProfileButton = document.getElementById("elevationProfileButton");
@@ -575,7 +574,7 @@ require([
             });
             app.legend.view = app.activeView;
             app.bookmarksWidget.view = app.activeView;
-            app.bookmarksWidget.editingEnabled = true;
+            app.bookmarksWidget.visibleElements.editBookmarkButton = true;
             app.coordinateConversion.view = app.activeView;
             app.coordinateConversion.formats.add(app.newCoordFormat);
             app.coordinateConversion.conversions.splice(
@@ -650,7 +649,7 @@ require([
                     // if the full-extent action is triggered then navigate
                     // to the full extent of the visible layer
                     if (layer.fullExtent.spatialReference !== app.activeView.spatialReference) {
-                        var geomSer = new GeometryService({
+                        var geomSer = new geometryService({
                             url: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/Geometry/GeometryServer",
                         });
                         var params = new ProjectParameters({
@@ -2249,7 +2248,8 @@ require([
 
         app.attributeTableLayerSelect = document.getElementById("layerSelectMenu");
 
-        app.bookmarksbutton = document.getElementById('bookmarksbutton')
+        app.bookmarksbutton = document.getElementById('bookmarksbutton');
+        app.printbutton = document.getElementById('printbutton');
     }
 
     function findLayerByTitle(title, map) {
@@ -2787,10 +2787,11 @@ require([
                         app.elevationProfileWidget.view = app.activeView;
                         app.layerList.view = app.activeView;
                         app.home.viewpoint = app.defaultHomeViewPoint;
-
+                        app.printWidget.view = app.activeView;
                         app.measureWidgetButtons2D.classList.remove("hidden");
                         app.measureWidgetButtons3D.classList.add("hidden");
                         app.bookmarksbutton.classList.remove('hidden');
+                        app.printbutton.classList.remove('hidden');
                         app.activeView.whenLayerView(app.queryLayer).then(function (layerView) {
                             app.queryLayerView = layerView;
                         });
@@ -2862,6 +2863,7 @@ require([
                         app.measureWidgetButtons3D.classList.remove("hidden");
                         app.home.viewpoint = app.defaultHomeViewPoint;
                         app.bookmarksbutton.classList.add('hidden');
+                        app.printbutton.classList.add('hidden');
                         create3DDistanceMeasureWidget();
                         create3DAreaMeasureWidget();
 
