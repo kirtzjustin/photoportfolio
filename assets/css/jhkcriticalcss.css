@@ -120,12 +120,14 @@ body {
 }
 
 #header-title {
-  margin-left: 0.6rem;
+  margin-left: 0.8rem;
   margin-right: 1rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 #myTravelMap {
   vertical-align: middle;
-  font-size: 32px;
+  font-size: 24px;
 }
 #titleBlockImg {
   vertical-align: middle;
@@ -180,5 +182,8 @@ body {
 #attributeTablePanelBody {
   height: 100%;
   width: 100%;
+}
+.esri-search__submit-button {
+  color: #151515 !important;
 }
 /*# sourceMappingURL=jhkcriticalcss.css.map */

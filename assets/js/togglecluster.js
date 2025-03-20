@@ -1,8 +1,9 @@
 function toggleCluster() {
     try {
-        if (app.clusterPointLayer.featureReduction === null) {
+        if (app.clusterPointLayer.featureReduction === null || app.clusterPointLayer.featureReduction === undefined) {
+
             app.clusterPointLayer.featureReduction = app.clusterPointLayer_clusterSettings
- 
+
             app.clusterPointLayerOverview.featureReduction = {
                 type: 'cluster',
                 clusterRadius: "60",
@@ -12,7 +13,7 @@ function toggleCluster() {
             app.clusterPointLayer.featureReduction = null;
             app.clusterPointLayerOverview.featureReduction = null;
         }
- 
+
     } catch (e) {
         console.log('Error Clustering toggle', e.message)
     }

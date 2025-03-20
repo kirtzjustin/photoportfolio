@@ -22,7 +22,7 @@ function formatDate(date) {
     let monthIndex = date.getMonth();
     let year = date.getFullYear();
 
-    return monthNames[monthIndex] + ' ' + year;
+    return year.toString();
 }
 
 // Query the layer view for  count statistics
@@ -34,8 +34,7 @@ function queryLayerViewStats(buffer) {
     // tableData is used for tabulator table
     let tableData = [];
 
-    let june18 = 0, july18 = 0, aug18 = 0, sep18 = 0, oct18 = 0, nov18 = 0, dec18 = 0, jan19 = 0, feb19 = 0, mar19 = 0, may19 = 0;
-
+    let y2018 = 0, y2019 = 0, y2020 = 0, y2021 = 0, y2022 = 0, y2023 = 0, y2024 = 0, y2025 = 0;
     // let statsToQuery = ['avg'];
 
     // let statDef = [];
@@ -75,38 +74,29 @@ function queryLayerViewStats(buffer) {
                     let date = new Date(published)
                     let formattedDate = formatDate(date);
                     switch (formattedDate) {
-                        case 'June 2018':
-                            june18++;
+                        case "2018":
+                            y2018++;
                             break;
-                        case 'July 2018':
-                            july18++;
+                        case "2019":
+                            y2019++;
                             break;
-                        case 'August 2018':
-                            aug18++;
+                        case "2020":
+                            y2020++;
                             break;
-                        case 'September 2018':
-                            sep18++;
+                        case "2021":
+                            y2021++;
                             break;
-                        case 'October 2018':
-                            oct18++;
+                        case "2022":
+                            y2022++;
                             break;
-                        case 'November 2018':
-                            nov18++;
+                        case "2023":
+                            y2023++;
                             break;
-                        case 'December 2018':
-                            dec18++;
+                        case "2024":
+                            y2024++;
                             break;
-                        case 'January 2019':
-                            jan19++;
-                            break;
-                        case 'February 2019':
-                            feb19++;
-                            break;
-                        case 'March 2019':
-                            mar19++;
-                            break;
-                        case 'May 2019':
-                            may19++;
+                        case "2025":
+                            y2025++;
                             break;
                     }
                 } else {
@@ -117,19 +107,15 @@ function queryLayerViewStats(buffer) {
 
             totalSelectedFeatures = response.features.length;
             let updatedDataCount = [
-                june18,
-                july18,
-                aug18,
-                sep18,
-                oct18,
-                nov18,
-                dec18,
-                jan19,
-                feb19,
-                mar19,
-                may19
+                y2018,
+                y2019,
+                y2020,
+                y2021,
+                y2022,
+                y2023,
+                y2024,
+                y2025
             ];
-
             return {
                 updatedDataCount: updatedDataCount,
                 // totalWells_count: totalSelectedFeatures,
@@ -152,12 +138,10 @@ function updateCharts(
     let titleCount = response.titleCount;
     let tableData;
     // converts JSON date to formatted date for tabulator table
-    // for (var dict in response.tableData) {
-    //     let formattedPublishedDate = new Date(response.tableData[dict]['Published']);
-    //     let formattedUpdatedDate = new Date(response.tableData[dict]['Updated']);
-    //     response.tableData[dict]['Published'] = (formattedPublishedDate.getMonth() + 1).toString() + '/' + (formattedPublishedDate.getDate()).toString() + '/' + (formattedPublishedDate.getFullYear()).toString()
-    //     response.tableData[dict]['Updated'] = (formattedUpdatedDate.getMonth() + 1).toString() + '/' + (formattedUpdatedDate.getDate()).toString() + '/' + (formattedUpdatedDate.getFullYear()).toString()
-    // }
+    for (var dict in response.tableData) {
+        let formattedPublishedDate = new Date(response.tableData[dict]['date']);
+        response.tableData[dict]['date'] = (formattedPublishedDate.getMonth() + 1).toString() + '/' + (formattedPublishedDate.getDate()).toString() + '/' + (formattedPublishedDate.getFullYear()).toString()
+    }
     tableData = response.tableData;
 
     // make count chart
@@ -165,35 +149,35 @@ function updateCharts(
         // get the canvas element and use it to render the chart
         let canvasel_count = document.getElementById(canvasel1);
         app.chartCount = new Chart(canvasel_count.getContext("2d"), {
-            type: "pie",
+            type: "line",
             data: {
-                labels: ['June 2018',
-                    'July 2018',
-                    'August 2018',
-                    'September 2018',
-                    'October 2018',
-                    'November 2018',
-                    'December 2018',
-                    'January 2019',
-                    'February 2019',
-                    'March 2019',
-                    'May 2019'
+                labels: [
+                    '2018',
+                    '2019',
+                    '2020',
+                    '2021',
+                    '2022',
+                    '2023',
+                    '2024',
+                    '2025',
                 ],
                 datasets: [{
                     label: "My Travel Locations",
                     datalabels: {
                         color: 'black',
-                        align: 'center',
+                        align: 'end',
                         clamp: true,
                         font: {
                             size: 10,
                             family: "'Quicksand', 'Arial', sans-serif"
                         }
                     },
-
-                    backgroundColor: ["rgb(255, 255, 120)", "rgb(255, 180, 120)", "rgb(80, 255, 120)", "rgb(190, 180, 235)", 'rgb(255, 140, 0)', 'rgb(54,171,51)', 'rgb(190, 26, 235)', 'rgb(178, 178, 178)', 'rgb(45,211,21)', 'rgb(77,22,222)', 'rgb(90,0,175)'],
-                    borderColor: ["rgb(255, 255, 255)"],
-                    borderWidth: 1,
+                    borderColor: ["rgb(255, 36, 36)"],
+                    borderWidth: 3,
+                    pointStyle: 'rectRot',
+                    pointRadius: 5,
+                    pointBorderColor: 'rgb(0, 0, 0)',
+                    pointBorderWidth: 2,
                     data: updatedDataCount
                 }]
             },
@@ -258,7 +242,21 @@ function updateCharts(
                         }
                     }
 
-                }
+                },
+                scales: {
+                    xAxes: [{
+                      display: true,
+                      ticks: {
+                        major: {
+                          enabled: true
+                        }
+                      }
+                    }],
+                    yAxes: [{
+                      id: 'y',
+                      display: true,
+                    }]
+                  }
             }
         });
     } else {
@@ -386,16 +384,6 @@ function updateCharts(
                 headerFilterPlaceholder: 'Filter Column'
             },
             {
-                title: "FID",
-                field: "FID",
-                sorter: "number",
-                frozen: false,
-                // topCalc: "count",
-                // editor: "input",
-                headerFilter: false,
-                //headerFilterPlaceholder: 'Filter Column'
-            },
-            {
                 title: "Address",
                 field: "address",
                 sorter: "string",
@@ -419,6 +407,16 @@ function updateCharts(
                 title: "Google Map",
                 field: "google_map",
                 sorter: "string",
+                frozen: false,
+                // topCalc: "count",
+                // editor: "input",
+                headerFilter: true,
+                headerFilterPlaceholder: 'Filter Column'
+            },
+            {
+                title: "Date Added",
+                field: "date",
+                sorter: "date",
                 frozen: false,
                 // topCalc: "count",
                 // editor: "input",

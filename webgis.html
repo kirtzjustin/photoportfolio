@@ -1,257 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <meta name="description" content="J. Kirtz Travel Locations" />
-    <link rel="icon" href="images/favicons/camera.png" />
-    <title>justinkirtz.com</title>
-    <!-- Calcite Maps Bootstrap -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://js.arcgis.com/calcite-components/2.13.0/calcite.css"
-    />
-    <!-- <link async rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.8.css">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="description" content="J. Kirtz Travel Locations" />
+        <link rel="icon" href="images/favicons/camera.png" />
+        <title>justinkirtz.com</title>
+        <!-- Calcite Maps Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.13.0/calcite.css" />
+        <!-- <link async rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.8.css">
   <link async rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.8.css"> -->
-    <!-- Tabulator Table Plugin CSS -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      async
-      rel="stylesheet"
-      href="assets/tabulator-master/dist/css/tabulator.min.css"
-    />
-    <!-- Font Awesome Icons - Basic Free Version -->
-    <script src="https://kit.fontawesome.com/73f02e966f.js"></script>
-    <!-- JHK Critical CSS  -->
-    <link rel="stylesheet" href="assets/css/jhkcriticalcss.min.css" />
-    <!-- ArcGIS JS 4 -->
-    <link
-      rel="stylesheet"
-      href="https://js.arcgis.com/4.31/esri/themes/light/main.css"
-    />
-    <!-- JHK JS Scripts -->
-    <script
-      type="text/javascript"
-      src="assets/js/addalphatocolor.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/js/resettabulatortable.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/js/togglecluster.min.js"
-    ></script>
-  </head>
+        <!-- Tabulator Table Plugin CSS -->
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+        <link async rel="stylesheet" href="assets/tabulator-master/dist/css/tabulator.min.css" />
+        <!-- Font Awesome Icons - Basic Free Version -->
+        <script src="https://kit.fontawesome.com/73f02e966f.js"></script>
+        <!-- JHK Critical CSS  -->
+        <link rel="stylesheet" href="assets/css/jhkcriticalcss.min.css" />
+        <!-- ArcGIS JS 4 -->
+        <link rel="stylesheet" href="https://js.arcgis.com/4.31/esri/themes/light/main.css" />
+        <!-- JHK JS Scripts -->
+        <script type="text/javascript" src="assets/js/addalphatocolor.min.js"></script>
+        <script type="text/javascript" src="assets/js/resettabulatortable.min.js"></script>
+        <script type="text/javascript" src="assets/js/togglecluster.min.js"></script>
+    </head>
 
-  <body>
-    <div id="splashDiv">
-      <p id="splashDivTitle">My Travel Map</p>
-      <p id="splashDivDisclaimer">
-        As I travel to new places I log my location into Google Maps Saved
-        Places and then periodically convert them to a shapefile for use in this
-        GIS web application. I've also logged the location of some of my
-        favorite personal photographs. I developed this app using the ESRI
-        JavaScript API Version 4.31.<br /><br /><span id="splashDivTechUsed"
-          >Libraries:
-          <a href="https://developers.arcgis.com/javascript/" target="_blank"
-            >ESRI JavaScript API 4.x</a
-          >,
-          <a href="https://www.arcgis.com/home/index.html" target="_blank"
-            >ArcGIS Online</a
-          >, <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>,
-          <a href="https://jquery.com/" target="_blank">jQuery</a>,
-          <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>,
-          <a href="http://tabulator.info/" target="_blank">Tabulator</a></span
-        ><br />
-      </p>
-      <button
-        class="btn btn-primary"
-        type="button"
-        onclick="RemoveSplashScreen()"
-        id="acceptButton"
-      >
-        Get Started
-      </button>
-    </div>
-    <div id="splashDivBackground"></div>
+    <body>
+        <div id="splashDiv">
+            <p id="splashDivTitle">My Travel Map</p>
+            <p id="splashDivDisclaimer">
+                As I travel to new places I log my location into Google Maps Saved Places. I periodically convert them to a shapefile for use in this GIS web application. I've also logged the location of some of my favorite personal photographs. This app was developed using the ESRI JavaScript API version 4.31, ArcGIS Online, and Github Pages.<br /><br /><span id="splashDivTechUsed"
+                    >Libraries: <a href="https://developers.arcgis.com/javascript/" target="_blank">ESRI JavaScript API 4</a>, <a href="https://www.arcgis.com/home/index.html" target="_blank">ArcGIS Online</a>, <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>, <a href="http://tabulator.info/" target="_blank">Tabulator</a></span
+                ><br />
+            </p>
+            <button class="btn btn-primary" type="button" onclick="RemoveSplashScreen()" id="acceptButton">Get Started</button>
+        </div>
+        <div id="splashDivBackground"></div>
 
-    <calcite-loader active></calcite-loader>
-    <calcite-shell content-behind hidden>
-      <h2 id="header-title" slot="header">
-        <img
-          id="titleBlockImg"
-          src="images/favicons/camera.png"
-          style="width: 30px; height: 30px"
-        /><span id="myTravelMap">My Travel Map</span> |
-        <span id="hyperlinkHome"
-          ><a id="hyperlinkHomeLink" href="https://www.justinkirtz.com"
-            >Return Home</a
-          ></span
-        >
-      </h2>
-      <calcite-shell-panel
-        slot="panel-start"
-        position="start"
-        width-scale=""
-        display-mode="float"
-      >
-        <calcite-action-bar id="appNavbar" slot="action-bar">
-          <calcite-action
-            data-action-id="panelQuery"
-            icon="file-magnifying-glass"
-            text="Query/Statistics"
-            title="Query/Statistics"
-          ></calcite-action>
-          <calcite-action
-            data-action-id="panelLayerList"
-            icon="layers"
-            text="Layer List"
-            title="Layer List & Filters"
-          >
-          </calcite-action>
-          <calcite-action
-            data-action-id="panelLegend"
-            icon="legend"
-            text="Legend"
-            title="Legend"
-          ></calcite-action>
-          <calcite-action
-            data-action-id="panelBasemaps"
-            icon="basemap"
-            text="Basemaps"
-            title="Basemaps"
-          >
-          </calcite-action>
-          <calcite-action
-            data-action-id="panelMeasure"
-            icon="measure"
-            text="Measure"
-            title="Measure"
-          ></calcite-action>
-          <calcite-action
-            id="attributetablebutton"
-            data-action-id="panelAttributeTable"
-            icon="table"
-            text="Attribute Table"
-            title="Attribute Table"
-          >
-          </calcite-action>
-          <calcite-action
-            data-action-id="panelCoordinateConversion"
-            icon="point"
-            text="Coordinate Conversion"
-            title="Coordinate Conversion"
-          >
-          </calcite-action>
-          <calcite-action
-            id="addmarkupbutton"
-            data-action-id="panelSketch"
-            icon="pen-mark"
-            text="Add Markup"
-            title="Add Markup"
-          >
-          </calcite-action>
-          <calcite-action
-            id="bookmarksbutton"
-            data-action-id="panelBookmarks"
-            icon="bookmark"
-            text="My Favorite Cities"
-            title="My Favorite Cities"
-          >
-          </calcite-action>
-          <calcite-action
-            id="elevationprofilebutton"
-            class="noDisplay"
-            data-action-id="panelEleProfile"
-            icon="altitude"
-            text="Generate Elevation Profile"
-            title="Generate Elevation Profile"
-          >
-          </calcite-action>
-          <!-- <calcite-action id="streetviewbutton" icon="360-view" data-action-id="streetview" text="Open Google Street View" title="Open Google Street View"> </calcite-action> -->
-          <calcite-action
-            id="switchbutton"
-            icon="globe"
-            text="Toggle Map To 3D View"
-            title="Toggle Map To 3D View"
-          ></calcite-action>
-          <calcite-action
-            data-action-id="panelInfo"
-            icon="question"
-            text="About Me"
-            title="About Me"
-          >
-          </calcite-action>
-          <calcite-action
-            id="printbutton"
-            data-action-id="panelPrintWidget"
-            icon="print"
-            text="Print"
-            title="Print"
-          >
-          </calcite-action>
-          <calcite-action
-            data-action-id="panelSettings"
-            icon="gear"
-            text="Settings/Help"
-            title="Settings/Help"
-          >
-          </calcite-action>
-        </calcite-action-bar>
-        <!-- Info Panel -->
-        <calcite-panel
-          id="panelInfo"
-          heading="About Me"
-          height-scale="l"
-          data-panel-id="panelInfo"
-          hidden
-        >
-          <div
-            id="collapseInfo"
-            class="panel-collapse collapse"
-            role="tabpanel"
-            aria-labelledby="headingInfo"
-          >
-            <div class="panel-body" id="aboutPanelBody">
-              <p>
-                After growing up in Charlotte, North Carolina I decided to get a
-                change of scenery from city life and attended Appalachian State
-                University in rural Boone, North Carolina. Having a life-long
-                interest in science, I majored in Geography with a concentration
-                in GIS (Geographic Information Systems). Upon graduating college
-                in 2010 I served as the GIS Planner for the City of Greer, SC
-                where I was a one man GIS department. During this time I
-                discovered a passion for writing code and taught myself Python
-                and JavaScript in my spare time at home. I oversaw the
-                implementation and development of Greer"s web GIS platform using
-                ArcGIS Server and wrote Greer"s custom web-based GIS viewer
-                using the ESRI JavaScript 4.x API. After seven years with Greer
-                I decided to transition to the private sector and joined
-                SynTerra Corporation in downtown Greenville, SC as the GIS
-                Administrator specializing in GIS web development. After three
-                years with SynTerra I decided to return to the public sector as
-                the GIS Manager with Greenville Water, where I lead the GIS
-                Department.
-              </p>
-              <br />
-              <img
-                class="aboutMeImage"
-                src="images/fulls/GreerCitizenArticle.jpg"
-                alt="Greer Citizen"
-              />
-              <p class="aboutMeImageCaption">
-                The Greer Citizen, March 14, 2018
-              </p>
-              <!-- <p>While writing code is a relatively new passion of mine playing music has been a lifelong endeavor. I
+        <calcite-loader active></calcite-loader>
+        <calcite-shell content-behind hidden>
+            <h2 id="header-title" slot="header">
+                <img id="titleBlockImg" src="images/favicons/camera.png" style="width: 25px; height: 25px" /><span id="myTravelMap">My Travel Map</span> |
+                <span id="hyperlinkHome"><a id="hyperlinkHomeLink" href="https://www.justinkirtz.com">Return Home</a></span>
+            </h2>
+            <calcite-shell-panel slot="panel-start" position="start" width-scale="" display-mode="float">
+                <calcite-action-bar id="appNavbar" slot="action-bar">
+                    <calcite-action data-action-id="panelQuery" icon="file-magnifying-glass" text="Query/Statistics" title="Query/Statistics"></calcite-action>
+                    <calcite-action data-action-id="panelLayerList" icon="layers" text="Layer List" title="Layer List & Filters"> </calcite-action>
+                    <calcite-action data-action-id="panelLegend" icon="legend" text="Legend" title="Legend"></calcite-action>
+                    <calcite-action data-action-id="panelBasemaps" icon="basemap" text="Basemaps" title="Basemaps"> </calcite-action>
+                    <calcite-action data-action-id="panelMeasure" icon="measure" text="Measure" title="Measure"></calcite-action>
+                    <calcite-action id="attributetablebutton" data-action-id="panelAttributeTable" icon="table" text="Attribute Table" title="Attribute Table"> </calcite-action>
+                    <calcite-action data-action-id="panelCoordinateConversion" icon="point" text="Coordinate Conversion" title="Coordinate Conversion"> </calcite-action>
+                    <calcite-action id="addmarkupbutton" data-action-id="panelSketch" icon="pen-mark" text="Add Markup" title="Add Markup"> </calcite-action>
+                    <calcite-action id="bookmarksbutton" data-action-id="panelBookmarks" icon="bookmark" text="My Favorite Cities" title="My Favorite Cities"> </calcite-action>
+                    <calcite-action id="elevationprofilebutton" class="noDisplay" data-action-id="panelEleProfile" icon="altitude" text="Generate Elevation Profile" title="Generate Elevation Profile"> </calcite-action>
+                    <!-- <calcite-action id="streetviewbutton" icon="360-view" data-action-id="streetview" text="Open Google Street View" title="Open Google Street View"> </calcite-action> -->
+                    <calcite-action id="switchbutton" icon="globe" text="Toggle Map To 3D View" title="Toggle Map To 3D View"></calcite-action>
+                    <calcite-action data-action-id="panelInfo" icon="question" text="About Me" title="About Me"> </calcite-action>
+                    <calcite-action id="printbutton" data-action-id="panelPrintWidget" icon="print" text="Print" title="Print"> </calcite-action>
+                    <calcite-action data-action-id="panelSettings" icon="gear" text="Settings/Help" title="Settings/Help"> </calcite-action>
+                </calcite-action-bar>
+                <!-- Info Panel -->
+                <calcite-panel id="panelInfo" heading="About Me" height-scale="l" data-panel-id="panelInfo" hidden>
+                    <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
+                        <div class="panel-body" id="aboutPanelBody">
+                            <p>
+                                After growing up in Charlotte, North Carolina I decided to get a change of scenery from city life and attended Appalachian State University in rural Boone, North Carolina. Having a life-long interest in science, I majored in Geography with a concentration in GIS (Geographic Information Systems). Upon graduating college in 2010 I served as the GIS Planner for the City of Greer, SC where I was a one man GIS department. During this time I discovered a passion for writing code and taught myself Python and JavaScript in my spare time at home. I oversaw the implementation and development of Greer's web GIS platform using ArcGIS Server and wrote Greer's custom web-based GIS viewer using the ESRI JavaScript 4 API. After seven years with Greer I decided to transition
+                                to the private sector and joined SynTerra Corporation in downtown Greenville, SC as the Graphics & Technology Group Leader specializing in GIS web development. After three years with SynTerra I decided to return to the public sector as the GIS Manager with Greenville Water, where I lead the GIS Department.
+                            </p>
+                            <br />
+                            <img class="aboutMeImage" src="images/fulls/GreerCitizenArticle.jpg" alt="Greer Citizen" />
+                            <p class="aboutMeImageCaption">The Greer Citizen, March 14, 2018</p>
+                            <!-- <p>While writing code is a relatively new passion of mine playing music has been a lifelong endeavor. I
               started playing trombone when I was in 3rd grade and picked up the guitar in 8th grade. I was a trombone
               player in the ASU Jazz Ensemble I, making the top jazz ensemble as a non-music major. After college I turned
               my focus to primarily guitar. I periodically record videos for my YouTube channel which has somehow gotten a half million total views over the years.</p>
@@ -263,13 +85,8 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe width="375" height="211" src="https://www.youtube.com/embed/7BipNDwT_mw" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-              <p>
-                I currently live in the Greenville area with my wife Allison and
-                our beautiful daughter, Scarlett. We also have two dogs and four
-                snakes; a corn snake, an eastern kingsnake, a ball python, and a
-                bullsnake.
-              </p>
-              <!-- <div id="aboutMeImages">
+                            <p>I currently live in the Greenville area with my wife Allison and our beautiful daughter, Scarlett. We also have two dogs and four snakes; a corn snake, an eastern kingsnake, a ball python, and a bullsnake.</p>
+                            <!-- <div id="aboutMeImages">
               <figure>
                 <img class="aboutMeImage" src="http://jkirtz.x10host.com/images/alliandi.jpg" alt="Allison">
                 <p class="aboutMeImageCaption">My wife and I at Predjama Castle in Predjama, Slovenia</p>
@@ -280,521 +97,306 @@
                 <p class="aboutMeImageCaption">Scarlett and I</p>
               </figure>
             </div> -->
-            </div>
-            <div
-              style="
-                text-align: center;
-                padding-bottom: 5px;
-                padding-top: 5px;
-                border-top: 0.5px solid gray;
-              "
-            >
-              <p>
-                <a href="mailto:kirtzjustin@gmail.com">kirtzjustin@gmail.com</a>
-              </p>
-              <!-- <p><a href="http://jkirtz.x10host.com/files/JustinKirtzResume" target="_blank">View my resume</a></p> -->
-              <a href="https://github.com/kirtzjustin" target="_blank"
-                ><i title="Find me on GitHub" class="fab fa-github"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/justin-kirtz-b0485a9b/"
-                target="_blank"
-                ><i
-                  title="Connect with me on LinkedIn"
-                  class="fab fa-linkedin"
-                ></i
-              ></a>
-            </div>
-          </div>
-        </calcite-panel>
-        <!-- Basemaps Panel -->
-        <calcite-panel
-          id="panelBasemaps"
-          heading="Basemaps"
-          height-scale="l"
-          data-panel-id="panelBasemaps"
-          hidden
-        >
-          <div id="basemapGallery"></div>
-        </calcite-panel>
-        <!-- Attribute Table Panel -->
-        <calcite-panel
-          id="panelAttributeTable"
-          heading="Attribute Table"
-          height-scale="l"
-          data-panel-id="panelAttributeTable"
-          hidden
-        >
-          <div id="attributeTablePanelBody" class="panel-body">
-            <div id="layerSelectDiv">
-              <label id="layerSelectDivLabel" for="layerSelectMenu"
-                >Select Layer</label
-              >
-              <select id="layerSelectMenu"></select>
-            </div>
-            <div id="attributeTable"></div>
-          </div>
-        </calcite-panel>
-        <!-- Legend Panel -->
-        <calcite-panel
-          id="panelLegend"
-          heading="Legend"
-          height-scale="l"
-          data-panel-id="panelLegend"
-          hidden
-        >
-          <div id="legendDiv"></div>
-        </calcite-panel>
-        <!-- Layer List Panel -->
-        <calcite-panel
-          id="panelLayerList"
-          heading="Layer List & Filters"
-          height-scale="l"
-          data-panel-id="panelLayerList"
-          hidden
-        >
-          <div class="panel-body">
-            <div id="filterToolDiv">
-              <label
-                id="filterToolSelectMenuLabel"
-                for="filterToolSelectMenu"
-              ></label>
-              <select id="filterToolSelectMenu"></select>
-            </div>
-            <div id="layerListDiv"></div>
-          </div>
-        </calcite-panel>
-        <!-- Bookmarks Panel -->
-        <calcite-panel
-          id="panelBookmarks"
-          heading="My Favorite Cities"
-          height-scale="l"
-          data-panel-id="panelBookmarks"
-          hidden
-        >
-          <div id="bookmarksDiv"></div>
-        </calcite-panel>
-        <!-- Elevation Profile Panel -->
-        <calcite-panel
-          id="panelEleProfile"
-          heading="Elevation Profile"
-          height-scale="l"
-          data-panel-id="panelEleProfile"
-          hidden
-        >
-          <div id="collapseeleProfile">
-            <div class="panel-body" id="eleProfilePanelBody"></div>
-          </div>
-        </calcite-panel>
-        <!-- Coordinate Conversion Panel -->
-        <calcite-panel
-          id="panelCoordinateConversion"
-          heading="Coordinate Conversion"
-          height-scale="l"
-          data-panel-id="panelCoordinateConversion"
-          hidden
-        >
-          <div id="collapseCoordinateConversion">
-            <div style="width: auto" class="panel-body">
-              <p id="coordConversionWarning" class="hidden" style="color: red">
-                Popups have been disabled. To enable popups, switch back to Live
-                Mode.
-              </p>
-              <div id="coordinateConversionDiv"></div>
-            </div>
-          </div>
-        </calcite-panel>
-        <!-- Print Panel -->
-        <calcite-panel
-          id="panelPrintWidget"
-          heading="Print"
-          height-scale="l"
-          data-panel-id="panelPrintWidget"
-          hidden
-        >
-          <div id="collapsePrintWidget">
-            <div style="width: auto" class="panel-body">
-              <div id="printWidgetDiv"></div>
-              <div id="screenshot3DSection" class="hidden">
-                <p class="screenshot_label">
-                  Click the icon to create a 3D screenshot
-                </p>
-                <div
-                  id="screenshot3DButton"
-                  class="esri-component esri-widget--button esri-widget btn-circle"
-                  title="Take a screenshot"
-                >
-                  <span
-                    id="screenshot3dButtonSpan"
-                    class="glyphicon glyphicon-camera"
-                  ></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </calcite-panel>
-        <!-- Sketch Panel -->
-        <calcite-panel
-          id="panelSketch"
-          heading="Add Markup"
-          height-scale="l"
-          data-panel-id="panelSketch"
-          hidden
-        >
-          <div id="collapseSketch">
-            <div style="width: auto" class="panel-body">
-              <div id="sketchDiv">
-                <div id="sketchWidgetButtons"></div>
-                <div id="sketchWidgetsSyles">
-                  <div id="sketchWidgetStylesPoint" class="hidden">
-                    <h4>Point Styles</h4>
-                    <label for="pointStyleSelect">Symbol</label>
-                    <select id="pointStyleSelect" class="esri-select">
-                      <option selected="selected" value="circle">Circle</option>
-                      <option value="cross">Cross</option>
-                      <option value="diamond">Diamond</option>
-                      <option value="square">Square</option>
-                      <option value="x">X</option>
-                    </select>
-                    <label for="pointSizeSelect">Size</label>
-                    <select id="pointSizeSelect" class="esri-select">
-                      <option value="6px">6px</option>
-                      <option value="8px">8px</option>
-                      <option value="10px">10px</option>
-                      <option value="12px">12px</option>
-                      <option selected="selected" value="14px">14px</option>
-                      <option value="16px">16px</option>
-                      <option value="18px">18px</option>
-                      <option value="20px">20px</option>
-                      <option value="22px">22px</option>
-                      <option value="24px">24px</option>
-                      <option value="26px">26px</option>
-                      <option value="28px">28px</option>
-                      <option value="30px">30px</option>
-                      <option value="32px">32px</option>
-                      <option value="34px">34px</option>
-                      <option value="36px">36px</option>
-                      <option value="38px">38px</option>
-                      <option value="40px">40px</option>
-                    </select>
-                    <label for="colorSelectPoint">Fill Color</label>
-                    <input
-                      type="color"
-                      id="colorSelectPoint"
-                      class="esri-select"
-                      value="#00788c"
-                    />
-                    <label for="colorSelectPointAlpha"
-                      >Fill Color Opacity</label
-                    >
-                    <input
-                      type="range"
-                      id="colorSelectPointAlpha"
-                      onchange="addAlphaToColor('colorSelectPoint',this.value);"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value="0.7"
-                    />
-                    <label for="outlineColorSelectPoint">Outline Color</label>
-                    <input
-                      type="color"
-                      id="outlineColorSelectPoint"
-                      class="esri-select"
-                      value="#1d1160"
-                    />
-                    <label for="outlineColorSelectPointAlpha"
-                      >Outline Color Opacity</label
-                    >
-                    <input
-                      type="range"
-                      id="outlineColorSelectPointAlpha"
-                      onchange="addAlphaToColor('outlineColorSelectPoint',this.value);"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value="0.7"
-                    />
-                    <label for="outlineWidthSelectPoint">Outline Width</label>
-                    <select id="outlineWidthSelectPoint" class="esri-select">
-                      <option value="0">0</option>
-                      <option value="0.5">0.5</option>
-                      <option selected="selected" value="1">1</option>
-                      <option value="1.5">1.5</option>
-                      <option value="2">2</option>
-                      <option value="2.5">2.5</option>
-                      <option value="3">3</option>
-                      <option value="3.5">3.5</option>
-                      <option value="4">4</option>
-                      <option value="4.5">4.5</option>
-                      <option value="5">5</option>
-                      <option value="5.5">5.5</option>
-                      <option value="6">6</option>
-                      <option value="6.5">6.5</option>
-                      <option value="7">7</option>
-                      <option value="7.5">7.5</option>
-                      <option value="8">8</option>
-                      <option value="8.5">8.5</option>
-                      <option value="9">9</option>
-                      <option value="9.5">9.5</option>
-                      <option value="10">10</option>
-                    </select>
-                  </div>
-                  <div id="sketchWidgetStylesPolyline" class="hidden">
-                    <h4>Polyline Styles</h4>
-                    <label for="polylineStyleSelect">Line Style</label>
-                    <select id="polylineStyleSelect" class="esri-select">
-                      <option value="dash">Dash</option>
-                      <option value="dash-dot">Dash-Dot</option>
-                      <option value="dot">Dot</option>
-                      <option value="long-dash">Long Dash</option>
-                      <option value="long-dash-dot">Long Dash Dot</option>
-                      <option value="long-dash-dot-dot">
-                        Long Dash Dot Dot
-                      </option>
-                      <option value="short-dash">Short Dash</option>
-                      <option value="short-dash-dot">Short Dash Dot</option>
-                      <option value="short-dash-dot-dot">
-                        Short Dash Dot Dot
-                      </option>
-                      <option value="short-dot">Short Dot</option>
-                      <option selected="selected" value="solid">Solid</option>
-                    </select>
-                    <label for="colorSelectPolyline">Color</label>
-                    <input
-                      type="color"
-                      id="colorSelectPolyline"
-                      class="esri-select"
-                      value="#0085ca"
-                    />
-                    <label for="colorSelectPolylineAlpha">Opacity</label>
-                    <input
-                      type="range"
-                      id="colorSelectPolylineAlpha"
-                      onchange="addAlphaToColor('colorSelectPolyline',this.value);"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value="0.7"
-                    />
-                    <label for="polylineWidthSelect">Width</label>
-                    <select id="polylineWidthSelect" class="esri-select">
-                      <option value="0">0</option>
-                      <option value="0.5">0.5</option>
-                      <option value="1">1</option>
-                      <option value="1.5">1.5</option>
-                      <option selected="selected" value="2">2</option>
-                      <option value="2.5">2.5</option>
-                      <option value="3">3</option>
-                      <option value="3.5">3.5</option>
-                      <option value="4">4</option>
-                      <option value="4.5">4.5</option>
-                      <option value="5">5</option>
-                      <option value="5.5">5.5</option>
-                      <option value="6">6</option>
-                      <option value="6.5">6.5</option>
-                      <option value="7">7</option>
-                      <option value="7.5">7.5</option>
-                      <option value="8">8</option>
-                      <option value="8.5">8.5</option>
-                      <option value="9">9</option>
-                      <option value="9.5">9.5</option>
-                      <option value="10">10</option>
-                    </select>
-                  </div>
-                  <div id="sketchWidgetStylesPolygon" class="hidden">
-                    <h4>Polygon Styles</h4>
-                    <label for="polygonStyleSelect">Fill Pattern</label>
-                    <select id="polygonStyleSelect" class="esri-select">
-                      <option value="backward-diagonal">
-                        Backward Diagonal
-                      </option>
-                      <option value="cross">Cross</option>
-                      <option value="diagonal-cross">Diagonal Cross</option>
-                      <option value="forward-diagonal">Forward Diagonal</option>
-                      <option value="horizontal">Horizontal</option>
-                      <option value="none">None</option>
-                      <option selected="selected" value="solid">Solid</option>
-                      <option value="vertical">vertical</option>
-                    </select>
-                    <label for="colorSelectPolygon">Fill Color</label>
-                    <input
-                      type="color"
-                      id="colorSelectPolygon"
-                      class="esri-select"
-                      value="#bb0000"
-                    />
-                    <label for="colorSelectPolygonAlpha"
-                      >Fill Color Opacity</label
-                    >
-                    <input
-                      type="range"
-                      id="colorSelectPolygonAlpha"
-                      onchange="addAlphaToColor('colorSelectPolygon',this.value);"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value="0.7"
-                    />
-                    <label for="outlineColorSelectPolygon">Outline Color</label>
-                    <input
-                      type="color"
-                      id="outlineColorSelectPolygon"
-                      class="esri-select"
-                      value="#666666"
-                    />
-                    <label for="outlineColorSelectPolygonAlpha"
-                      >Outline Color Opacity</label
-                    >
-                    <input
-                      type="range"
-                      id="outlineColorSelectPolygonAlpha"
-                      onchange="addAlphaToColor('outlineColorSelectPolygon',this.value);"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value="0.7"
-                    />
-                    <label for="polygonOutlineWidthSelect">Outline Width</label>
-                    <select id="polygonOutlineWidthSelect" class="esri-select">
-                      <option value="0">0</option>
-                      <option value="0.5">0.5</option>
-                      <option selected="selected" value="1">1</option>
-                      <option value="1.5">1.5</option>
-                      <option value="2">2</option>
-                      <option value="2.5">2.5</option>
-                      <option value="3">3</option>
-                      <option value="3.5">3.5</option>
-                      <option value="4">4</option>
-                      <option value="4.5">4.5</option>
-                      <option value="5">5</option>
-                      <option value="5.5">5.5</option>
-                      <option value="6">6</option>
-                      <option value="6.5">6.5</option>
-                      <option value="7">7</option>
-                      <option value="7.5">7.5</option>
-                      <option value="8">8</option>
-                      <option value="8.5">8.5</option>
-                      <option value="9">9</option>
-                      <option value="9.5">9.5</option>
-                      <option value="10">10</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </calcite-panel>
-        <!-- Measurement Panel -->
-        <calcite-panel
-          id="panelMeasure"
-          heading="Measurement"
-          height-scale="l"
-          data-panel-id="panelMeasure"
-          hidden
-        >
-          <div id="collapseMeasure">
-            <div class="panel-body">
-              <div id="measureGroup">
-                <div id="measureWidgetButtons2D">
-                  <!-- 2d Measure -->
-                  <div>
-                    <div
-                      id="drawPolygon"
-                      class="esri-component esri-widget--button esri-widget btn-circle"
-                      title="Draw and measure an area"
-                    >
-                      <span class="esri-icon-polygon"></span>
+                        </div>
+                        <div style="text-align: center; padding-bottom: 5px; padding-top: 5px; border-top: 0.5px solid gray">
+                            <p>
+                                <a href="mailto:kirtzjustin@gmail.com">kirtzjustin@gmail.com</a>
+                            </p>
+                            <!-- <p><a href="http://jkirtz.x10host.com/files/JustinKirtzResume" target="_blank">View my resume</a></p> -->
+                            <a href="https://github.com/kirtzjustin" target="_blank"><i title="Find me on GitHub" class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/justin-kirtz-b0485a9b/" target="_blank"><i title="Connect with me on LinkedIn" class="fab fa-linkedin"></i></a>
+                        </div>
                     </div>
-                    <p id="drawPolygonLabel">Draw and measure an area</p>
-                  </div>
-                  <div>
-                    <div
-                      id="drawPolyline"
-                      class="esri-component esri-widget--button esri-widget btn-circle"
-                      title="Draw and measure a line"
-                    >
-                      <span class="esri-icon-polyline"></span>
+                </calcite-panel>
+                <!-- Basemaps Panel -->
+                <calcite-panel id="panelBasemaps" heading="Basemaps" height-scale="l" data-panel-id="panelBasemaps" hidden>
+                    <div id="basemapGallery"></div>
+                </calcite-panel>
+                <!-- Attribute Table Panel -->
+                <calcite-panel id="panelAttributeTable" heading="Attribute Table" height-scale="l" data-panel-id="panelAttributeTable" hidden>
+                    <div id="attributeTablePanelBody" class="panel-body">
+                        <div id="layerSelectDiv">
+                            <label id="layerSelectDivLabel" for="layerSelectMenu">Select Layer</label>
+                            <select id="layerSelectMenu"></select>
+                        </div>
+                        <div id="attributeTable"></div>
                     </div>
-                    <p id="drawPolylineLabel">Draw and measure a line</p>
-                  </div>
-                  <div id="measureOutput2D"></div>
-                </div>
-                <div id="measureWidgetButtons3D" class="hidden">
-                  <!-- 3d Measure -->
-                  <div>
-                    <div
-                      id="areaButton"
-                      class="esri-component esri-widget--button esri-widget btn-circle"
-                      title="Measure area"
-                    >
-                      <span class="esri-icon-polygon"></span>
+                </calcite-panel>
+                <!-- Legend Panel -->
+                <calcite-panel id="panelLegend" heading="Legend" height-scale="l" data-panel-id="panelLegend" hidden>
+                    <div id="legendDiv"></div>
+                </calcite-panel>
+                <!-- Layer List Panel -->
+                <calcite-panel id="panelLayerList" heading="Layer List & Filters" height-scale="l" data-panel-id="panelLayerList" hidden>
+                    <div class="panel-body">
+                        <div id="filterToolDiv">
+                            <label id="filterToolSelectMenuLabel" for="filterToolSelectMenu"></label>
+                            <select id="filterToolSelectMenu"></select>
+                        </div>
+                        <div id="layerListDiv"></div>
                     </div>
-                    <p class="draw-polygon-row-item">
-                      Draw and measure an area
-                    </p>
-                  </div>
-                  <div>
-                    <div
-                      id="distanceButton"
-                      class="esri-component esri-widget--button esri-widget btn-circle"
-                      title="Measure distance between two points"
-                    >
-                      <span class="esri-icon-polyline"></span>
+                </calcite-panel>
+                <!-- Bookmarks Panel -->
+                <calcite-panel id="panelBookmarks" heading="My Favorite Cities" height-scale="l" data-panel-id="panelBookmarks" hidden>
+                    <div id="bookmarksDiv"></div>
+                </calcite-panel>
+                <!-- Elevation Profile Panel -->
+                <calcite-panel id="panelEleProfile" heading="Elevation Profile" height-scale="l" data-panel-id="panelEleProfile" hidden>
+                    <div id="collapseeleProfile">
+                        <div class="panel-body" id="eleProfilePanelBody"></div>
                     </div>
-                    <p class="draw-polygon-row-item">Draw and measure a line</p>
-                  </div>
-                  <div id="measureOutput3D"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </calcite-panel>
-        <!-- Settings Panel -->
-        <calcite-panel
-          id="panelSettings"
-          heading="Settings"
-          height-scale="l"
-          data-panel-id="panelSettings"
-          hidden
-        >
-          <div id="collapseSettings">
-            <div class="panel-body">
-              <!-- toggles overview map on/off. Overview map turned on by default-->
-              <div id="overviewMapToggleDiv">
-                <label
-                  ><input
-                    id="overviewMapToggleBox"
-                    onchange="overviewMapToggle(this)"
-                    type="checkbox"
-                    checked="checked"
-                  />Enable Overview Map</label
-                >
-              </div>
-              <!-- toggles basemap elevation on/off. Basemap elevation turned on by default-->
-              <div id="elevationToggleDiv" class="hidden">
-                <label
-                  ><input
-                    id="elevationToggle"
-                    type="checkbox"
-                    checked="checked"
-                  />Enable Basemap Elevation</label
-                >
-              </div>
-              <div id="clusterDiv">
-                <label
-                  ><input
-                    id="clusterInput"
-                    type="checkbox"
-                    onchange="toggleCluster()"
-                  />Enable Layer Clustering</label
-                >
-              </div>
-            </div>
-          </div>
-        </calcite-panel>
-        <!-- Editor Panel -->
-        <!-- <div id="panelEditor" heading="Editor" height-scale="l" data-panel-id="panelEditor" hidden>
+                </calcite-panel>
+                <!-- Coordinate Conversion Panel -->
+                <calcite-panel id="panelCoordinateConversion" heading="Coordinate Conversion" height-scale="l" data-panel-id="panelCoordinateConversion" hidden>
+                    <div id="collapseCoordinateConversion">
+                        <div style="width: auto" class="panel-body">
+                            <p id="coordConversionWarning" class="hidden" style="color: red">Popups have been disabled. To enable popups, switch back to Live Mode.</p>
+                            <div id="coordinateConversionDiv"></div>
+                        </div>
+                    </div>
+                </calcite-panel>
+                <!-- Print Panel -->
+                <calcite-panel id="panelPrintWidget" heading="Print" height-scale="l" data-panel-id="panelPrintWidget" hidden>
+                    <div id="collapsePrintWidget">
+                        <div style="width: auto" class="panel-body">
+                            <div id="printWidgetDiv"></div>
+                            <div id="screenshot3DSection" class="hidden">
+                                <p class="screenshot_label">Click the icon to create a 3D screenshot</p>
+                                <div id="screenshot3DButton" class="esri-component esri-widget--button esri-widget btn-circle" title="Take a screenshot">
+                                    <span id="screenshot3dButtonSpan" class="glyphicon glyphicon-camera"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </calcite-panel>
+                <!-- Sketch Panel -->
+                <calcite-panel id="panelSketch" heading="Add Markup" height-scale="l" data-panel-id="panelSketch" hidden>
+                    <div id="collapseSketch">
+                        <div style="width: auto" class="panel-body">
+                            <div id="sketchDiv">
+                                <div id="sketchWidgetButtons"></div>
+                                <div id="sketchWidgetsSyles">
+                                    <div id="sketchWidgetStylesPoint" class="hidden">
+                                        <h4>Point Styles</h4>
+                                        <label for="pointStyleSelect">Symbol</label>
+                                        <select id="pointStyleSelect" class="esri-select">
+                                            <option selected="selected" value="circle">Circle</option>
+                                            <option value="cross">Cross</option>
+                                            <option value="diamond">Diamond</option>
+                                            <option value="square">Square</option>
+                                            <option value="x">X</option>
+                                        </select>
+                                        <label for="pointSizeSelect">Size</label>
+                                        <select id="pointSizeSelect" class="esri-select">
+                                            <option value="6px">6px</option>
+                                            <option value="8px">8px</option>
+                                            <option value="10px">10px</option>
+                                            <option value="12px">12px</option>
+                                            <option selected="selected" value="14px">14px</option>
+                                            <option value="16px">16px</option>
+                                            <option value="18px">18px</option>
+                                            <option value="20px">20px</option>
+                                            <option value="22px">22px</option>
+                                            <option value="24px">24px</option>
+                                            <option value="26px">26px</option>
+                                            <option value="28px">28px</option>
+                                            <option value="30px">30px</option>
+                                            <option value="32px">32px</option>
+                                            <option value="34px">34px</option>
+                                            <option value="36px">36px</option>
+                                            <option value="38px">38px</option>
+                                            <option value="40px">40px</option>
+                                        </select>
+                                        <label for="colorSelectPoint">Fill Color</label>
+                                        <input type="color" id="colorSelectPoint" class="esri-select" value="#00788c" />
+                                        <label for="colorSelectPointAlpha">Fill Color Opacity</label>
+                                        <input type="range" id="colorSelectPointAlpha" onchange="addAlphaToColor('colorSelectPoint',this.value);" min="0" max="1" step="0.1" value="0.7" />
+                                        <label for="outlineColorSelectPoint">Outline Color</label>
+                                        <input type="color" id="outlineColorSelectPoint" class="esri-select" value="#1d1160" />
+                                        <label for="outlineColorSelectPointAlpha">Outline Color Opacity</label>
+                                        <input type="range" id="outlineColorSelectPointAlpha" onchange="addAlphaToColor('outlineColorSelectPoint',this.value);" min="0" max="1" step="0.1" value="0.7" />
+                                        <label for="outlineWidthSelectPoint">Outline Width</label>
+                                        <select id="outlineWidthSelectPoint" class="esri-select">
+                                            <option value="0">0</option>
+                                            <option value="0.5">0.5</option>
+                                            <option selected="selected" value="1">1</option>
+                                            <option value="1.5">1.5</option>
+                                            <option value="2">2</option>
+                                            <option value="2.5">2.5</option>
+                                            <option value="3">3</option>
+                                            <option value="3.5">3.5</option>
+                                            <option value="4">4</option>
+                                            <option value="4.5">4.5</option>
+                                            <option value="5">5</option>
+                                            <option value="5.5">5.5</option>
+                                            <option value="6">6</option>
+                                            <option value="6.5">6.5</option>
+                                            <option value="7">7</option>
+                                            <option value="7.5">7.5</option>
+                                            <option value="8">8</option>
+                                            <option value="8.5">8.5</option>
+                                            <option value="9">9</option>
+                                            <option value="9.5">9.5</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                    <div id="sketchWidgetStylesPolyline" class="hidden">
+                                        <h4>Polyline Styles</h4>
+                                        <label for="polylineStyleSelect">Line Style</label>
+                                        <select id="polylineStyleSelect" class="esri-select">
+                                            <option value="dash">Dash</option>
+                                            <option value="dash-dot">Dash-Dot</option>
+                                            <option value="dot">Dot</option>
+                                            <option value="long-dash">Long Dash</option>
+                                            <option value="long-dash-dot">Long Dash Dot</option>
+                                            <option value="long-dash-dot-dot">Long Dash Dot Dot</option>
+                                            <option value="short-dash">Short Dash</option>
+                                            <option value="short-dash-dot">Short Dash Dot</option>
+                                            <option value="short-dash-dot-dot">Short Dash Dot Dot</option>
+                                            <option value="short-dot">Short Dot</option>
+                                            <option selected="selected" value="solid">Solid</option>
+                                        </select>
+                                        <label for="colorSelectPolyline">Color</label>
+                                        <input type="color" id="colorSelectPolyline" class="esri-select" value="#0085ca" />
+                                        <label for="colorSelectPolylineAlpha">Opacity</label>
+                                        <input type="range" id="colorSelectPolylineAlpha" onchange="addAlphaToColor('colorSelectPolyline',this.value);" min="0" max="1" step="0.1" value="0.7" />
+                                        <label for="polylineWidthSelect">Width</label>
+                                        <select id="polylineWidthSelect" class="esri-select">
+                                            <option value="0">0</option>
+                                            <option value="0.5">0.5</option>
+                                            <option value="1">1</option>
+                                            <option value="1.5">1.5</option>
+                                            <option selected="selected" value="2">2</option>
+                                            <option value="2.5">2.5</option>
+                                            <option value="3">3</option>
+                                            <option value="3.5">3.5</option>
+                                            <option value="4">4</option>
+                                            <option value="4.5">4.5</option>
+                                            <option value="5">5</option>
+                                            <option value="5.5">5.5</option>
+                                            <option value="6">6</option>
+                                            <option value="6.5">6.5</option>
+                                            <option value="7">7</option>
+                                            <option value="7.5">7.5</option>
+                                            <option value="8">8</option>
+                                            <option value="8.5">8.5</option>
+                                            <option value="9">9</option>
+                                            <option value="9.5">9.5</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                    <div id="sketchWidgetStylesPolygon" class="hidden">
+                                        <h4>Polygon Styles</h4>
+                                        <label for="polygonStyleSelect">Fill Pattern</label>
+                                        <select id="polygonStyleSelect" class="esri-select">
+                                            <option value="backward-diagonal">Backward Diagonal</option>
+                                            <option value="cross">Cross</option>
+                                            <option value="diagonal-cross">Diagonal Cross</option>
+                                            <option value="forward-diagonal">Forward Diagonal</option>
+                                            <option value="horizontal">Horizontal</option>
+                                            <option value="none">None</option>
+                                            <option selected="selected" value="solid">Solid</option>
+                                            <option value="vertical">vertical</option>
+                                        </select>
+                                        <label for="colorSelectPolygon">Fill Color</label>
+                                        <input type="color" id="colorSelectPolygon" class="esri-select" value="#bb0000" />
+                                        <label for="colorSelectPolygonAlpha">Fill Color Opacity</label>
+                                        <input type="range" id="colorSelectPolygonAlpha" onchange="addAlphaToColor('colorSelectPolygon',this.value);" min="0" max="1" step="0.1" value="0.7" />
+                                        <label for="outlineColorSelectPolygon">Outline Color</label>
+                                        <input type="color" id="outlineColorSelectPolygon" class="esri-select" value="#666666" />
+                                        <label for="outlineColorSelectPolygonAlpha">Outline Color Opacity</label>
+                                        <input type="range" id="outlineColorSelectPolygonAlpha" onchange="addAlphaToColor('outlineColorSelectPolygon',this.value);" min="0" max="1" step="0.1" value="0.7" />
+                                        <label for="polygonOutlineWidthSelect">Outline Width</label>
+                                        <select id="polygonOutlineWidthSelect" class="esri-select">
+                                            <option value="0">0</option>
+                                            <option value="0.5">0.5</option>
+                                            <option selected="selected" value="1">1</option>
+                                            <option value="1.5">1.5</option>
+                                            <option value="2">2</option>
+                                            <option value="2.5">2.5</option>
+                                            <option value="3">3</option>
+                                            <option value="3.5">3.5</option>
+                                            <option value="4">4</option>
+                                            <option value="4.5">4.5</option>
+                                            <option value="5">5</option>
+                                            <option value="5.5">5.5</option>
+                                            <option value="6">6</option>
+                                            <option value="6.5">6.5</option>
+                                            <option value="7">7</option>
+                                            <option value="7.5">7.5</option>
+                                            <option value="8">8</option>
+                                            <option value="8.5">8.5</option>
+                                            <option value="9">9</option>
+                                            <option value="9.5">9.5</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </calcite-panel>
+                <!-- Measurement Panel -->
+                <calcite-panel id="panelMeasure" heading="Measurement" height-scale="l" data-panel-id="panelMeasure" hidden>
+                    <div id="collapseMeasure">
+                        <div class="panel-body">
+                            <div id="measureGroup">
+                                <div id="measureWidgetButtons2D">
+                                    <!-- 2d Measure -->
+                                    <div>
+                                        <div id="drawPolygon" class="esri-component esri-widget--button esri-widget btn-circle" title="Draw and measure an area">
+                                            <span class="esri-icon-polygon"></span>
+                                        </div>
+                                        <p id="drawPolygonLabel">Draw and measure an area</p>
+                                    </div>
+                                    <div>
+                                        <div id="drawPolyline" class="esri-component esri-widget--button esri-widget btn-circle" title="Draw and measure a line">
+                                            <span class="esri-icon-polyline"></span>
+                                        </div>
+                                        <p id="drawPolylineLabel">Draw and measure a line</p>
+                                    </div>
+                                    <div id="measureOutput2D"></div>
+                                </div>
+                                <div id="measureWidgetButtons3D" class="hidden">
+                                    <!-- 3d Measure -->
+                                    <div>
+                                        <div id="areaButton" class="esri-component esri-widget--button esri-widget btn-circle" title="Measure area">
+                                            <span class="esri-icon-polygon"></span>
+                                        </div>
+                                        <p class="draw-polygon-row-item">Draw and measure an area</p>
+                                    </div>
+                                    <div>
+                                        <div id="distanceButton" class="esri-component esri-widget--button esri-widget btn-circle" title="Measure distance between two points">
+                                            <span class="esri-icon-polyline"></span>
+                                        </div>
+                                        <p class="draw-polygon-row-item">Draw and measure a line</p>
+                                    </div>
+                                    <div id="measureOutput3D"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </calcite-panel>
+                <!-- Settings Panel -->
+                <calcite-panel id="panelSettings" heading="Settings" height-scale="l" data-panel-id="panelSettings" hidden>
+                    <div id="collapseSettings">
+                        <div class="panel-body">
+                            <!-- toggles overview map on/off. Overview map turned on by default-->
+                            <div id="overviewMapToggleDiv">
+                                <label><input id="overviewMapToggleBox" onchange="overviewMapToggle(this)" type="checkbox" checked="checked" />Enable Overview Map</label>
+                            </div>
+                            <!-- toggles basemap elevation on/off. Basemap elevation turned on by default-->
+                            <div id="elevationToggleDiv" class="hidden">
+                                <label><input id="elevationToggle" type="checkbox" checked="checked" />Enable Basemap Elevation</label>
+                            </div>
+                            <div id="clusterDiv">
+                                <label><input id="clusterInput" type="checkbox" onchange="toggleCluster()" />Enable Layer Clustering</label>
+                            </div>
+                        </div>
+                    </div>
+                </calcite-panel>
+                <!-- Editor Panel -->
+                <!-- <div id="panelEditor" heading="Editor" height-scale="l" data-panel-id="panelEditor" hidden>
         <div id="headingEditor" class="panel-heading" role="tab">
           <div class="panel-title">
             <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseEditor" aria-expanded="true"
@@ -810,111 +412,53 @@
           </div>
         </div>
       </div> -->
-        <!-- Query Panel -->
-        <calcite-panel
-          id="panelQuery"
-          heading="Query/Statistics"
-          height-scale="l"
-          data-panel-id="panelQuery"
-          hidden
-        >
-          <div id="collapseQuery">
-            <p
-              id="howToQueryText"
-              style="color: green; margin: 5px 0px 0px 5px; font-size: 11.7px"
-              )=""
-            >
-              Select a geometry button and draw a shape on the map to query
-            </p>
-            <div id="queryTools">
-              <div id="geometryQueryButtons"></div>
-              <div
-                id="zoomToExtentOfQueryPoly"
-                class="esri-component esri-widget--button esri-widget"
-                title="Zoom to full extent of query polygon"
-              >
-                <span
-                  class="esri-icon esri-icon-zoom-out-fixed"
-                  aria-hidden="true"
-                ></span>
-              </div>
-              <div
-                id="clearHighlightedFeatures"
-                class="esri-component esri-widget--button esri-widget"
-                title="Clear query polygon and highlighted features"
-              >
-                <span
-                  class="esri-icon esri-icon-trash"
-                  aria-hidden="true"
-                ></span>
-              </div>
-              <p class="queryOutputs" title="Area of the drawn buffer">
-                Area:
-                <span
-                  class="queryOutputs_measurements"
-                  id="queryMeasureContainerArea"
-                  title="Area of the drawn buffer"
-                  >0.00 ft<sup>2</sup></span
-                >
-              </p>
-              <p class="queryOutputs" title="Radius of the drawn buffer">
-                Radius:
-                <span
-                  class="queryOutputs_measurements"
-                  id="queryMeasureContainerRadius"
-                  title="Radius of the drawn buffer"
-                  >0.00 ft</span
-                >
-              </p>
-            </div>
-            <div id="queryingIndicatorContainer" class="noVisibility">
-              <img id="queryIndicator" src="images/gifs/loadingIndicator.gif" />
-              <p id="queryIndicatorText">Querying, please wait...</p>
-            </div>
-            <div class="panel-body" id="chartPanelBody">
-              <div
-                id="chartDiv"
-                class="chart-container"
-                style="position: relative"
-              >
-                <!-- REMOVE AND TURN INTO BLOCK -->
-                <calcite-block
-                  collapsible
-                  open
-                  heading="Selected Features Table"
-                  description=""
-                  icon-start="table"
-                >
-                  <calcite-notice open>
-                    <div slot="message">
-                      <div id="tableDiv">
-                        <div id="tableControlsContainer">
-                          <div id="downloadtablebuttons">
-                            <div
-                              id="downloadXlsx"
-                              class="esri-component esri-widget--button esri-widget btn-circle"
-                              title="Download .xlsx file"
-                            >
-                              <i class="fas fa-file-excel"></i>
+                <!-- Query Panel -->
+                <calcite-panel id="panelQuery" heading="Query/Statistics" height-scale="l" data-panel-id="panelQuery" hidden>
+                    <div id="collapseQuery">
+                        <p id="howToQueryText" style="color: green; margin: 5px 0px 0px 5px; font-size: 11.7px" )="">Select a geometry button and draw a shape on the map to query</p>
+                        <div id="queryTools">
+                            <div id="geometryQueryButtons"></div>
+                            <div id="zoomToExtentOfQueryPoly" class="esri-component esri-widget--button esri-widget" title="Zoom to full extent of query polygon">
+                                <span class="esri-icon esri-icon-zoom-out-fixed" aria-hidden="true"></span>
                             </div>
-                            <div
-                              id="downloadCsv"
-                              class="esri-component esri-widget--button esri-widget btn-circle"
-                              title="Download .csv file"
-                            >
-                              <i class="fas fa-file-csv"></i>
+                            <div id="clearHighlightedFeatures" class="esri-component esri-widget--button esri-widget" title="Clear query polygon and highlighted features">
+                                <span class="esri-icon esri-icon-trash" aria-hidden="true"></span>
                             </div>
-                            <div
-                              id="filterClear"
-                              class="esri-component esri-widget--button esri-widget btn-circle"
-                              title="Clear filter criteria"
-                            >
-                              <i class="fas fa-undo-alt"></i>
-                            </div>
-                          </div>
-                          <div id="tableFilters" class="table-controls">
-                            <!--populates filter dropdown menus in table widget -->
-                            <!-- <span>
+                            <p class="queryOutputs" title="Area of the drawn buffer">
+                                Area:
+                                <span class="queryOutputs_measurements" id="queryMeasureContainerArea" title="Area of the drawn buffer">0.00 ft<sup>2</sup></span>
+                            </p>
+                            <p class="queryOutputs" title="Radius of the drawn buffer">
+                                Radius:
+                                <span class="queryOutputs_measurements" id="queryMeasureContainerRadius" title="Radius of the drawn buffer">0.00 ft</span>
+                            </p>
+                        </div>
+                        <div id="queryingIndicatorContainer" class="noVisibility">
+                            <img id="queryIndicator" src="images/gifs/loadingIndicator.gif" />
+                            <p id="queryIndicatorText">Querying, please wait...</p>
+                        </div>
+                        <div class="panel-body" id="chartPanelBody">
+                            <div id="chartDiv" class="chart-container" style="position: relative">
+                                <!-- REMOVE AND TURN INTO BLOCK -->
+                                <calcite-block collapsible open heading="Selected Features Table" description="" icon-start="table">
+                                    <calcite-notice open>
+                                        <div slot="message">
+                                            <div id="tableDiv">
+                                                <div id="tableControlsContainer">
+                                                    <div id="downloadtablebuttons">
+                                                        <div id="downloadXlsx" class="esri-component esri-widget--button esri-widget btn-circle" title="Download .xlsx file">
+                                                            <i class="fas fa-file-excel"></i>
+                                                        </div>
+                                                        <div id="downloadCsv" class="esri-component esri-widget--button esri-widget btn-circle" title="Download .csv file">
+                                                            <i class="fas fa-file-csv"></i>
+                                                        </div>
+                                                        <div id="filterClear" class="esri-component esri-widget--button esri-widget btn-circle" title="Clear filter criteria">
+                                                            <i class="fas fa-undo-alt"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div id="tableFilters" class="table-controls">
+                                                        <!--populates filter dropdown menus in table widget -->
+                                                        <!-- <span>
                                               <label>Field</label>
                                               <select id="filter-field" class="esri-select" title="Select field to filter by">
                                                   <option></option>
@@ -941,127 +485,75 @@
                                                   placeholder="Filter Value" title="Enter a value to filter by"
                                                   class="input-search"></span>
                                           <span> -->
-                            <label id="groupByFilterText"
-                              >Group Results By</label
-                            >
-                            <select
-                              id="groupByFilter"
-                              class="esri-select"
-                              title="Select group results by field"
-                            >
-                              <option></option>
-                              <option value="Country Code">Country</option>
-                              <option value="Published">Date Added</option>
-                              <option value="Updated">Date Updated</option>
-                            </select>
-                          </div>
+                                                        <label id="groupByFilterText">Group Results By</label>
+                                                        <select id="groupByFilter" class="esri-select" title="Select group results by field">
+                                                            <option></option>
+                                                            <option value="country_code">Country</option>
+                                                            <option value="date">Date Added</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="jhkTable"></div>
+                                            </div>
+                                            <div id="resetChartButton" class="resetChart esri-component esri-widget--button esri-widget btn-circle" title="Reset Table" onclick="resetTabulatorTable()">
+                                                <span class="esri-icon-refresh"></span>
+                                            </div>
+                                            <p id="resetChartButtonText">Reset Chart</p>
+                                        </div>
+                                    </calcite-notice>
+                                </calcite-block>
+                                <calcite-block collapsible open heading="Date Added Line Chart" description="" icon-start="graph-time-series">
+                                    <calcite-notice open>
+                                        <div slot="message">
+                                            <canvas class="statsCanvas" id="canvasCount"></canvas>
+                                        </div>
+                                    </calcite-notice>
+                                </calcite-block>
+                            </div>
                         </div>
-                        <div id="jhkTable"></div>
-                      </div>
-                      <div
-                        id="resetChartButton"
-                        class="resetChart esri-component esri-widget--button esri-widget btn-circle"
-                        title="Reset Table"
-                        onclick="resetTabulatorTable()"
-                      >
-                        <span class="esri-icon-refresh"></span>
-                      </div>
-                      <p id="resetChartButtonText">Reset Chart</p>
                     </div>
-                  </calcite-notice>
-                </calcite-block>
-                <calcite-block
-                  collapsible
-                  open
-                  heading="Date Added Pie Chart"
-                  description=""
-                  icon-start="pie-chart"
-                >
-                  <calcite-notice open>
-                    <div slot="message">
-                      <canvas class="statsCanvas" id="canvasCount"></canvas>
-                    </div>
-                  </calcite-notice>
-                </calcite-block>
-              </div>
+                </calcite-panel>
+            </calcite-shell-panel>
+            <div id="mapViewDiv"></div>
+            <div id="overviewMap">
+                <div id="extentIndicator"></div>
             </div>
-          </div>
-        </calcite-panel>
-      </calcite-shell-panel>
-      <div id="mapViewDiv"></div>
-      <div id="overviewMap">
-        <div id="extentIndicator"></div>
-      </div>
-    </calcite-shell>
-    <!-- /.calcite-panels -->
+        </calcite-shell>
+        <!-- /.calcite-panels -->
 
-    <!-- JHK CSS  -->
-    <link rel="stylesheet" href="assets/css/jhkcss.min.css" />
-    <!-- jQuery JS -->
-    <script
-      src="assets/jquery/dist/jquery.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="assets/intersection-observer/intersection-observer.min.js"
-      type="text/javascript"
-    ></script>
-    <!-- Chart.js JS (https://www.chartjs.org/)-->
-    <script
-      src="assets/Chartjs/Chart.bundle.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="assets/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js"
-      type="text/javascript"
-    ></script>
-    <script src="assets/hammerjs/hammer.min.js" type="text/javascript"></script>
-    <script
-      src="assets/chartjs-plugin-zoom/chartjs-plugin-zoom.min.js"
-      type="text/javascript"
-    ></script>
-    <!-- Tabulator Table Plugin JS (http://tabulator.info/)-->
-    <script
-      src="assets/tabulator-master/dist/js/tabulator.min.js"
-      type="text/javascript"
-    ></script>
-    <script src="assets/jspdf/xlsx.full.min.js" type="text/javascript"></script>
-    <script src="assets/jspdf/jspdf.min.js" type="text/javascript"></script>
-    <script
-      src="assets/jspdf/jspdf.plugin.autotable.js"
-      type="text/javascript"
-    ></script>
-    <script src="assets/momentjs/moment.min.js" type="text/javascript"></script>
-    <!-- Load the ESRI Calcite Components API library -->
-    <script
-      type="module"
-      src="https://js.arcgis.com/calcite-components/2.13.0/calcite.esm.js"
-    ></script>
-    <!-- dojoConfig -->
-    <!-- <script type="text/javascript" src="assets/js/dojoConfig.min.js"></script> -->
-    <!-- ArcGIS JS 4 -->
-    <script>
-      var dojoConfig = {
-        has: {
-          "featurelayer-snapshot-enabled": 0,
-        },
-      };
-    </script>
-    <script src="https://js.arcgis.com/4.31/"></script>
+        <!-- JHK CSS  -->
+        <link rel="stylesheet" href="assets/css/jhkcss.min.css" />
+        <!-- jQuery JS -->
+        <script src="assets/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/intersection-observer/intersection-observer.min.js" type="text/javascript"></script>
+        <!-- Chart.js JS (https://www.chartjs.org/)-->
+        <script src="assets/Chartjs/Chart.bundle.min.js" type="text/javascript"></script>
+        <script src="assets/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js" type="text/javascript"></script>
+        <script src="assets/hammerjs/hammer.min.js" type="text/javascript"></script>
+        <!-- Tabulator Table Plugin JS (http://tabulator.info/)-->
+        <script src="assets/tabulator-master/dist/js/tabulator.min.js" type="text/javascript"></script>
+        <script src="assets/jspdf/xlsx.full.min.js" type="text/javascript"></script>
+        <script src="assets/jspdf/jspdf.min.js" type="text/javascript"></script>
+        <script src="assets/jspdf/jspdf.plugin.autotable.js" type="text/javascript"></script>
+        <script src="assets/momentjs/moment.min.js" type="text/javascript"></script>
+        <!-- Load the ESRI Calcite Components API library -->
+        <script type="module" src="https://js.arcgis.com/calcite-components/2.13.0/calcite.esm.js"></script>
+        <!-- dojoConfig -->
+        <!-- <script type="text/javascript" src="assets/js/dojoConfig.min.js"></script> -->
+        <!-- ArcGIS JS 4 -->
+        <script>
+            var dojoConfig = {
+                has: {
+                    "featurelayer-snapshot-enabled": 0,
+                },
+            };
+        </script>
+        <script src="https://js.arcgis.com/4.31/"></script>
 
-    <!-- main app JS files -->
-    <script type="text/javascript" src="assets/js/jkapp.js"></script>
-    <script
-      type="text/javascript"
-      src="assets/js/geometryquerylogic.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/js/removesplashscreen.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/js/overviewmaptoggle.min.js"
-    ></script>
-  </body>
+        <!-- main app JS files -->
+        <script type="text/javascript" src="assets/js/jkapp.js"></script>
+        <script type="text/javascript" src="assets/js/geometryquerylogic.js"></script>
+        <script type="text/javascript" src="assets/js/removesplashscreen.min.js"></script>
+        <script type="text/javascript" src="assets/js/overviewmaptoggle.min.js"></script>
+    </body>
 </html>
