@@ -46,15 +46,15 @@
             </h2>
             <calcite-shell-panel slot="panel-start" position="start" width-scale="" display-mode="float">
                 <calcite-action-bar id="appNavbar" slot="action-bar">
-                    <calcite-action data-action-id="panelQuery" icon="file-magnifying-glass" text="Query/Statistics" title="Query/Statistics"></calcite-action>
                     <calcite-action data-action-id="panelLayerList" icon="layers" text="Layer List" title="Layer List & Filters"> </calcite-action>
                     <calcite-action data-action-id="panelLegend" icon="legend" text="Legend" title="Legend"></calcite-action>
                     <calcite-action data-action-id="panelBasemaps" icon="basemap" text="Basemaps" title="Basemaps"> </calcite-action>
+                    <calcite-action data-action-id="panelQuery" icon="file-magnifying-glass" text="Query/Statistics" title="Query/Statistics"></calcite-action>
+                    <calcite-action id="bookmarksbutton" data-action-id="panelBookmarks" icon="bookmark" text="My Favorite Cities" title="My Favorite Cities"> </calcite-action>
                     <calcite-action data-action-id="panelMeasure" icon="measure" text="Measure" title="Measure"></calcite-action>
                     <calcite-action id="attributetablebutton" data-action-id="panelAttributeTable" icon="table" text="Attribute Table" title="Attribute Table"> </calcite-action>
                     <calcite-action data-action-id="panelCoordinateConversion" icon="point" text="Coordinate Conversion" title="Coordinate Conversion"> </calcite-action>
                     <calcite-action id="addmarkupbutton" data-action-id="panelSketch" icon="pen-mark" text="Add Markup" title="Add Markup"> </calcite-action>
-                    <calcite-action id="bookmarksbutton" data-action-id="panelBookmarks" icon="bookmark" text="My Favorite Cities" title="My Favorite Cities"> </calcite-action>
                     <calcite-action id="elevationprofilebutton" class="noDisplay" data-action-id="panelEleProfile" icon="altitude" text="Generate Elevation Profile" title="Generate Elevation Profile"> </calcite-action>
                     <!-- <calcite-action id="streetviewbutton" icon="360-view" data-action-id="streetview" text="Open Google Street View" title="Open Google Street View"> </calcite-action> -->
                     <calcite-action id="switchbutton" icon="globe" text="Toggle Map To 3D View" title="Toggle Map To 3D View"></calcite-action>
@@ -551,8 +551,8 @@
         <script src="https://js.arcgis.com/4.31/"></script>
 
         <!-- main app JS files -->
-        <script type="text/javascript" src="assets/js/jkapp.js"></script>
-        <script type="text/javascript" src="assets/js/geometryquerylogic.js"></script>
+        <script type="text/javascript" src="assets/js/jkapp.min.js"></script>
+        <script type="text/javascript" src="assets/js/geometryquerylogic.min.js"></script>
         <script type="text/javascript" src="assets/js/removesplashscreen.min.js"></script>
         <script type="text/javascript" src="assets/js/overviewmaptoggle.min.js"></script>
     </body>
