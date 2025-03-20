@@ -295,7 +295,7 @@ require([
             rotationEnabled: false,
         },
         ui: {
-            components: ["compass"],
+            components: [],
             padding: app.uiPadding,
         },
     });
@@ -303,7 +303,7 @@ require([
         container: null,
         map: app.overviewMap,
         ui: {
-            components: ["compass"],
+            components: [],
             padding: app.uiPadding,
         },
     });
@@ -316,6 +316,7 @@ require([
         nextBasemap: "streets-vector",
     });
     app.overviewMapView.ui.add(app.overviewMapBasemapToggle, "top-right");
+
     app.overviewMapScaleBar = new ScaleBar({
         view: app.overviewMapView,
         style: "ruler",
@@ -558,7 +559,9 @@ require([
                     position: "bottom-right",
                 },
             ]);
+            app.activeView.ui.move("compass", "top-right");
             app.activeView.ui.move("zoom", "top-right");
+
 
             app.basemapGallery.view = app.activeView;
             app.basemapGallery.watch("activeBasemap", function (newValue) {
@@ -2840,6 +2843,7 @@ require([
                     position: "bottom-right",
                 },
             ]);
+            app.activeView.ui.move("compass", "top-right");
             app.activeView.ui.move("zoom", "top-right");
         } else {
             //Switch from 2D to 3D
@@ -2874,6 +2878,7 @@ require([
                         app.querySketchWidget.view = app.activeView;
                         //app.attributeTable.view = app.activeView;
                         app.elevationProfileWidget.view = app.activeView;
+
                         app.layerList.view = app.activeView;
                         app.measureWidgetButtons2D.classList.add("hidden");
                         app.measureWidgetButtons3D.classList.remove("hidden");
@@ -2916,7 +2921,9 @@ require([
                 //     position: "bottom-right",
                 // },
             ]);
+            app.activeView.ui.move("compass", "top-right");
             app.activeView.ui.move("zoom", "top-right");
+            app.overviewMapSceneView.ui.add(app.overviewMapBasemapToggleSceneView, "top-right");
         }
     }
 });
