@@ -323,17 +323,22 @@ function updateCharts(
                 query.returnGeometry = true;
 
                 app.queryLayer.queryFeatures(query).then(function (results) {
-                    let selectedFeature = results.features[0];
+                    try {
+                        let selectedFeature = results.features[0];
 
-                    app.activeView.goTo({
-                        target: selectedFeature.geometry,
-                        zoom: 20
-                    });
+                        app.activeView.goTo({
+                            target: selectedFeature.geometry,
+                            zoom: 20
+                        });
 
-                    // app.activeView.popup.open({
-                    //     location: selectedFeature.geometry,
-                    //     features: results.features
-                    // });
+                        // app.activeView.popup.open({
+                        //     location: selectedFeature.geometry,
+                        //     features: results.features
+                        // });
+                    } catch(error) {
+                        console.log('There was an error: ', error.message)
+                    }
+
                 });
             });
         },
@@ -347,10 +352,15 @@ function updateCharts(
                 query.returnGeometry = true;
 
                 layerView.queryFeatures(query).then(function (results) {
-                    let graphic = results.features[0];
-                    app.activeView.graphics.removeAll();
-                    app.selectedTableFeature.geometry = graphic.geometry;
-                    app.activeView.graphics.add(app.selectedTableFeature);
+                    try {
+                        let graphic = results.features[0];
+                        app.activeView.graphics.removeAll();
+                        app.selectedTableFeature.geometry = graphic.geometry;
+                        app.activeView.graphics.add(app.selectedTableFeature);
+                    } catch(error) {
+                        console.log('There was an error: ', error.message)
+                    }
+
                 });
             });
         },

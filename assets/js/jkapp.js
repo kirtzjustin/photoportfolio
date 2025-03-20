@@ -242,6 +242,7 @@ require([
         activeWidget: null,
         nextWidget: null,
         switchButton: null,
+        bookmarksbutton: null
     };
 
     app.elevationProfileButton = document.getElementById("elevationProfileButton");
@@ -2247,6 +2248,8 @@ require([
         app.coordinateConversionWarningText = document.getElementById("coordConversionWarning");
 
         app.attributeTableLayerSelect = document.getElementById("layerSelectMenu");
+
+        app.bookmarksbutton = document.getElementById('bookmarksbutton')
     }
 
     function findLayerByTitle(title, map) {
@@ -2763,7 +2766,7 @@ require([
             app.overviewMapSceneView.container = null;
             app.overviewMap.container = "overviewMap";
             app.overviewMap.popup = null;
-            app.switchButton.icon = "map";
+            app.switchButton.icon = "globe";
             app.switchButton.text = "Toggle Map To 3D View";
             app.switchButton.title = "Toggle Map To 3D View";
             reactiveUtils
@@ -2783,9 +2786,11 @@ require([
                         //app.attributeTable.view = app.activeView;
                         app.elevationProfileWidget.view = app.activeView;
                         app.layerList.view = app.activeView;
+                        app.home.viewpoint = app.defaultHomeViewPoint;
 
                         app.measureWidgetButtons2D.classList.remove("hidden");
                         app.measureWidgetButtons3D.classList.add("hidden");
+                        app.bookmarksbutton.classList.remove('hidden');
                         app.activeView.whenLayerView(app.queryLayer).then(function (layerView) {
                             app.queryLayerView = layerView;
                         });
@@ -2855,6 +2860,8 @@ require([
                         app.layerList.view = app.activeView;
                         app.measureWidgetButtons2D.classList.add("hidden");
                         app.measureWidgetButtons3D.classList.remove("hidden");
+                        app.home.viewpoint = app.defaultHomeViewPoint;
+                        app.bookmarksbutton.classList.add('hidden');
                         create3DDistanceMeasureWidget();
                         create3DAreaMeasureWidget();
 
