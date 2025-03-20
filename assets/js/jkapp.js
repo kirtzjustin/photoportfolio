@@ -214,6 +214,7 @@ require([
         ipad12MiniAir: null,
         elevationToggleDiv: null,
         elevationToggle: null,
+        appNavbar: null,
         // editorWidget: null,
         // editorWidgetLayerToEdit: null,
         // editorWidgetLayerNotToEdit1: null,
@@ -241,7 +242,8 @@ require([
         nextWidget: null,
         switchButton: null,
         bookmarksbutton: null,
-        printbutton: null
+        printbutton: null,
+        panelExpanded: false
     };
 
     app.elevationProfileButton = document.getElementById("elevationProfileButton");
@@ -262,7 +264,7 @@ require([
             size: "16px", // pixels
             outline: {
                 // autocasts as new SimpleLineSymbol()
-                color: "red",
+                color: "yellow",
                 width: 2, // points
             },
         },
@@ -766,6 +768,13 @@ require([
             app.elevationProfileWidget.view = app.activeView;
             app.map.layers.reorder(app.queryGraphicsLayer, app.map.layers.items.length - 1);
             app.map.layers.reorder(app.sketchWidget_graphicsLayer, app.map.layers.items.length);
+            // shift the view whenever right toolbar is expanded
+            app.appNavbar.addEventListener("calciteActionBarToggle", (event) => {
+                app.panelExpanded = !app.panelExpanded;
+                // app.activeView.padding = {
+                //     left: app.panelExpanded ? 275 : 50,
+                // };
+            });
             // Query widget
             app.querySketchViewModel = new SketchViewModel({
                 view: app.activeView,
@@ -845,6 +854,9 @@ require([
                                 // highlight query results
                                 app.highlightedFeature = layerView.highlight(graphics);
                                 // zoom to extent of query polygon, zoomed out by a factor of 2
+                                app.activeView.padding = {
+                                    left: app.panelExpanded ? 950 : 750,
+                                };
                                 app.activeView.goTo(app.queryPolygon.extent.expand(2));
                             });
                     }
@@ -936,6 +948,7 @@ require([
                     app.highlightedFeature.remove();
                     app.statsTable.clearData();
                     app.queryPolygon = null;
+                    app.activeView.padding.left = 0;
                 } catch (error) {
                     console.log("clearHighlightedFeatures Error: ", error.message);
                 }
@@ -1198,14 +1211,14 @@ require([
                 app.nextWidget = target.dataset.actionId;
                 if (app.nextWidget !== app.activeWidget) {
                     // app.activeView.padding = {
-                    //     right: actionBarExpanded ? 275 : 50,
+                    //     right: panelExpanded ? 275 : 50,
                     // };
                     app.activeWidget = app.nextWidget;
                     document.querySelector(`[data-action-id=${app.nextWidget}]`).active = true;
                     document.querySelector(`[data-panel-id=${app.nextWidget}]`).hidden = false;
                 } else {
                     // app.activeView.padding = {
-                    //     right: actionBarExpanded ? 275 : 50,
+                    //     right: panelExpanded ? 275 : 50,
                     // };
                     app.activeWidget = null;
                 }
@@ -1218,6 +1231,8 @@ require([
         document.querySelector("calcite-shell").hidden = false;
         document.querySelector("calcite-loader").active = false;
     });
+
+
 
     // watchUtils.whenOnce(app.activeView, "ready").then(function () {
 
@@ -2250,6 +2265,7 @@ require([
 
         app.bookmarksbutton = document.getElementById('bookmarksbutton');
         app.printbutton = document.getElementById('printbutton');
+        app.appNavbar = document.getElementById('appNavbar');
     }
 
     function findLayerByTitle(title, map) {
