@@ -589,6 +589,7 @@ require([
       });
       app.legend.view = app.activeView;
       app.bookmarksWidget.view = app.activeView;
+      app.bookmarksWidget.visibleElements.addBookmarkButton = true;
       app.bookmarksWidget.visibleElements.editBookmarkButton = true;
       app.coordinateConversion.view = app.activeView;
       app.coordinateConversion.formats.add(app.newCoordFormat);
