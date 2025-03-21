@@ -190,4 +190,7 @@ body {
 #filterToolDiv {
   margin: 5px;
 }
+.esri-coordinate-conversion__conversions-view {
+  margin: 0 !important;
+}
 /*# sourceMappingURL=jhkcriticalcss.css.map */
