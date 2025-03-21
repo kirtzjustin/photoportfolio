@@ -122,8 +122,8 @@ body {
 #header-title {
   margin-left: 0.8rem;
   margin-right: 1rem;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 #myTravelMap {
   vertical-align: middle;
@@ -146,8 +146,8 @@ body {
 }
 
 #panelLayerList {
-  max-width: 250px;
-  min-width: 250px;
+  max-width: 275px;
+  min-width: 275px;
 }
 
 #panelBookmarks,
@@ -185,5 +185,9 @@ body {
 }
 .esri-search__submit-button {
   color: #151515 !important;
+}
+
+#filterToolDiv {
+  margin: 5px;
 }
 /*# sourceMappingURL=jhkcriticalcss.css.map */
