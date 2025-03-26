@@ -275,7 +275,7 @@ require([
   // Map
   app.map = new WebMap({
     portalItem: {
-      id: "701743de5dfe42f5aa4fd06e185eb322",
+      id: "468d2a89a3924ecc818a45cc8b568806",
     },
     layers: [app.sketchWidgetGraphicsLayer, app.queryGraphicsLayer],
     ground: "world-elevation",
@@ -284,7 +284,7 @@ require([
   // overview map and map/scene views
   app.overviewMap = new WebMap({
     portalItem: {
-      id: "957e0ef0d5bc45eeae43e148434e1bfe",
+      id: "999ee72372284bf3926846a726e38b5f",
     },
   });
   // disable overview map popups
@@ -589,6 +589,7 @@ require([
       });
       app.legend.view = app.activeView;
       app.bookmarksWidget.view = app.activeView;
+      app.bookmarksWidget.visibleElements.addBookmarkButton = true;
       app.bookmarksWidget.visibleElements.editBookmarkButton = true;
       app.coordinateConversion.view = app.activeView;
       app.coordinateConversion.formats.add(app.newCoordFormat);
