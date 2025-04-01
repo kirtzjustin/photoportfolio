@@ -275,7 +275,7 @@ require([
   // Map
   app.map = new WebMap({
     portalItem: {
-      id: "468d2a89a3924ecc818a45cc8b568806",
+      id: "664d34e4535d45beaf5ef93babc19f0c",
     },
     layers: [app.sketchWidgetGraphicsLayer, app.queryGraphicsLayer],
     ground: "world-elevation",
@@ -284,7 +284,7 @@ require([
   // overview map and map/scene views
   app.overviewMap = new WebMap({
     portalItem: {
-      id: "999ee72372284bf3926846a726e38b5f",
+      id: "b626c40bf835402f8e80ca817027efff",
     },
   });
   // disable overview map popups
