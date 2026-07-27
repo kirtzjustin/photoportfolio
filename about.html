@@ -244,7 +244,7 @@
                 </p>
               </div>
 
-              <div id="timesheet"></div>
+              <div id="travelTimeline"></div>
             </div>
           </div>
         </div>
@@ -293,213 +293,56 @@
     <script src="assets/js/bootstrap-datepicker.min.js"></script>
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/aos.js"></script>
-
     <script src="assets/js/picturefill.min.js"></script>
     <script src="assets/js/lightgallery-all.min.js"></script>
     <script src="assets/js/jquery.mousewheel.min.js"></script>
-    <script src="assets/js/timesheet.min.js"></script>
+    <script src="assets/js/jquery.mousewheel.min.js"></script>
+    <script src="assets/visjs/vis-timeline-graph2d.min.js"></script>
     <script>
-      // colors are determined by the 'lorem/ipsem' property that is passed to each dataset
-      new Timesheet("timesheet", 2014, 2023, [
-        [
-          "08/2014",
-          "08/2014",
-          '<span style="font-weight:bold;color:#88c33a">Mexico</span> (Cancún)',
-          "lorem",
-        ],
-        [
-          "10/2015",
-          "11/2015",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (New York City, NY, Washington DC, Boston, MA)',
-          "",
-        ],
-        [
-          "10/2015",
-          "11/2015",
-          '<span style="font-weight:bold;color:#88c33a">Ireland</span> (Dublin), <span style="font-weight:bold;color:#88c33a">Belgium</span> (Brussels), <span style="font-weight:bold;color:#88c33a">France</span> (Paris), <span style="font-weight:bold;color:#88c33a">Germany</span> (Trier)',
-          "lorem",
-        ],
-        [
-          "05/2016",
-          "06/2016",
-          '<span style="font-weight:bold;color:#88c33a">Canada</span> (Toronto), <span style="font-weight:bold;color:#88c33a">The Netherlands</span> (Amsterdam), <span style="font-weight:bold;color:#88c33a">Norway</span> (Oslo)',
-          "lorem",
-        ],
-        [
-          "05/2016",
-          "06/2016",
-          '<span style="font-weight:bold;color:#88c33a">Czech Republic</span> (Prague), <span style="font-weight:bold;color:#88c33a">Austria</span> (Vienna), <span style="font-weight:bold;color:#88c33a">Slovakia</span> (Bratislava)',
-          "lorem",
-        ],
-        [
-          "09/2016",
-          "09/2016",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (San Francisco Bay Area, Yosemite National Park)',
-          "",
-        ],
-        [
-          "02/2017",
-          "02/2017",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (New York City, NY)',
-          "",
-        ],
-        [
-          "02/2017",
-          "02/2017",
-          '<span style="font-weight:bold;color:#88c33a">Spain</span> (Barcelona), <span style="font-weight:bold;color:#88c33a">The Netherlands</span> (Amsterdam)',
-          "lorem",
-        ],
-        [
-          "08/2017",
-          "08/2017",
-          '<span style="font-weight:bold;color:#88c33a">Italy</span> (Venice, Trento, Lago di Garda, Verona, Trieste, Florence, Pisa, Bologna)',
-          "lorem",
-        ],
-        [
-          "08/2017",
-          "08/2017",
-          '<span style="font-weight:bold;color:#88c33a">Slovenia</span> (Ljubljana, Bled, Lake Bohinj, Predjama, Postojna)',
-          "lorem",
-        ],
-        [
-          "11/2017",
-          "11/2017",
-          '<span style="font-weight:bold;color:#88c33a">England</span> (London)',
-          "lorem",
-        ],
-        [
-          "11/2017",
-          "11/2017",
-          '<span style="font-weight:bold;color:#88c33a">Denmark</span> (Copenhagen, Hillerød, Helsingør), <span style="font-weight:bold;color:#88c33a">Sweden</span> (Malmö, Helsingborg)',
-          "lorem",
-        ],
-        [
-          "08/2018",
-          "09/2018",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Key West, FL)',
-          "",
-        ],
-        [
-          "10/2018",
-          "10/2018",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (New York City, NY)',
-          "",
-        ],
-        [
-          "10/2018",
-          "10/2018",
-          '<span style="font-weight:bold;color:#88c33a">Switzerland</span> (Zürich), <span style="font-weight:bold;color:#88c33a">Croatia</span> (Zagreb, Rovinj, Plitvice Lakes), <span style="font-weight:bold;color:#88c33a">Slovenia</span> (Ljubljana, Bled)',
-          "",
-        ],
-        [
-          "05/2019",
-          "05/2019",
-          '<span style="font-weight:bold;color:#88c33a">Denmark</span> (Copenhagen, Roskilde, Køge)',
-          "lorem",
-        ],
-        [
-          "05/2019",
-          "05/2019",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Denver, CO)',
-          "",
-        ],
-        [
-          "11/2019",
-          "11/2019",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Savannah, GA)',
-          "",
-        ],
-        [
-          "10/2020",
-          "10/2020",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Nashville, TN)',
-          "",
-        ],
-        [
-          "08/2021",
-          "08/2021",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Lexington, KY)',
-          "",
-        ],
-        [
-          "04/2023",
-          "04/2023",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Miami, FL)',
-          "",
-        ],
-        [
-          "04/2023",
-          "04/2023",
-          '<span style="font-weight:bold;color:#88c33a">Spain</span> (Madrid, Toledo, Seville, Ronda, Málaga, Granada)',
-          "lorem",
-        ],
-        [
-          "06/2023",
-          "06/2023",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Washington DC)',
-          "",
-        ],
-        [
-          "07/2023",
-          "07/2023",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (San Diego, CA)',
-          "",
-        ],
-        [
-          "04/2024",
-          "04/2024",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Wilmington, NC)',
-          "",
-        ],
-        [
-          "05/2024",
-          "05/2024",
-          '<span style="font-weight:bold;color:#88c33a">Mexico</span> (Cancún)',
-          "lorem",
-        ],
-        [
-          "07/2024",
-          "07/2024",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (San Diego, CA)',
-          "",
-        ],
-        [
-          "10/2024",
-          "10/2024",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (New York City, NY)',
-          "",
-        ],
-        [
-          "11/2024",
-          "11/2024",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Myrtle Beach, SC)',
-          "",
-        ],
-        [
-          "07/2025",
-          "7/2025",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (San Diego, CA)',
-          "",
-        ],
-        [
-          "03/2026",
-          "03/2026",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Myrtle Beach, SC)',
-          "",
-        ],
-        [
-          "07/2026",
-          "07/2026",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (San Diego, CA)',
-          "",
-        ],
-        [
-          "08/2026",
-          "08/2026",
-          '<span style="font-weight:bold;color:#f3552e">USA</span> (Canton, OH)',
-          "",
-        ],
+      let container = document.getElementById('travelTimeline');
+      // Create a DataSet (allows two way data-binding)
+      let items = new vis.DataSet([
+        { id: 1, content: "<img src='/images/fulls/flagofmex.png'> Cancún", start: "2014-08-15", className: "cancun"},
+        { id: 2, content: "<img src='/images/fulls/flagofusa.png'> Boston, MA", start: "2015-03-15", className: "usaTrips"},  
+        { id: 3, content: "<img src='/images/fulls/flagofeu.png'> Ireland (Dublin), Belgium (Brussels), France (Paris), Germany (Trier)", start: "2015-10-15", className: "europeTrips"},
+        { id: 4, content: "<img src='/images/fulls/flagofusa.png'> <img src='/images/fulls/flagofeu.png'> Boston, MA", start: "2015-10-15", className: "europeTrips"},    
+        { id: 5, content: "<img src='/images/fulls/flagofusa.png'> New York City, NY, Washington DC", start: "2015-12-15", className: "usaTrips"},     
+        { id: 6, content: "<img src='/images/fulls/flagofeu.png'> Czech Republic (Prague), Austria (Vienna), Slovakia (Bratislava)", start: "2016-05-15", className: "europeTrips"},
+        { id: 7, content: "<img src='/images/fulls/flagofcan.png'> <img src='/images/fulls/flagofeu.png'> Canada (Toronto), The Netherlands (Amsterdam), Norway (Oslo)", start: "2016-05-15", className: "europeTrips"},
+        { id: 8, content: "<img src='/images/fulls/flagofusa.png'> San Francisco Bay Area, Yosemite National Park", start: "2016-09-15", className: "usaTrips"},
+        { id: 9, content: "<img src='/images/fulls/flagofeu.png'> Spain (Barcelona), The Netherlands (Amsterdam)", start: "2017-02-15", className: "europeTrips"},
+        { id: 10, content: "<img src='/images/fulls/flagofusa.png'> <img src='/images/fulls/flagofeu.png'> New York City, NY", start: "2017-02-15", className: "europeTrips"},
+        { id: 11, content: "<img src='/images/fulls/flagofeu.png'> Italy (Venice, Trento, Lago di Garda, Verona, Trieste, Florence, Pisa, Bologna)", start: "2017-08-15", className: "europeTrips"},
+        { id: 12, content: "<img src='/images/fulls/flagofeu.png'> Slovenia (Ljubljana, Bled, Lake Bohinj, Predjama, Postojna)", start: "2017-08-15", className: "europeTrips"},
+        { id: 13, content: "<img src='/images/fulls/flagofeu.png'> England (London), Denmark (Copenhagen, Hillerød, Helsingør), Sweden (Malmö, Helsingborg)", start: "2017-11-15", className: "europeTrips"},
+        { id: 14, content: "<img src='/images/fulls/flagofusa.png'> Key West, FL", start: "2018-08-15", className: "usaTrips"},
+        { id: 15, content: "<img src='/images/fulls/flagofeu.png'> Switzerland (Zürich), Croatia (Zagreb, Rovinj, Plitvice Lakes), Slovenia (Ljubljana, Bled)", start: "2018-10-15", className: "europeTrips"},
+        { id: 16, content: "<img src='/images/fulls/flagofusa.png'> <img src='/images/fulls/flagofeu.png'> New York City, NY", start: "2018-10-15", className: "europeTrips"},
+        { id: 17, content: "<img src='/images/fulls/flagofeu.png'> Denmark (Copenhagen, Roskilde, Køge)", start: "2019-05-01", className: "europeTrips"},
+        { id: 18, content: "<img src='/images/fulls/flagofusa.png'> Denver, CO", start: "2019-05-15", className: "usaTrips"},
+        { id: 19, content: "<img src='/images/fulls/flagofusa.png'> Savannah, GA", start: "2019-11-15", className: "usaTrips"},
+        { id: 20, content: "<img src='/images/fulls/flagofusa.png'> Nashville, TN", start: "2020-10-15", className: "usaTrips"},
+        { id: 21, content: "<img src='/images/fulls/flagofusa.png'> Lexington, KY", start: "2021-08-15", className: "usaTrips"},
+        { id: 22, content: "<img src='/images/fulls/flagofeu.png'> Spain (Madrid, Toledo, Seville, Ronda, Málaga, Granada)", start: "2023-04-15", className: "europeTrips"},
+        { id: 23, content: "<img src='/images/fulls/flagofusa.png'> <img src='/images/fulls/flagofeu.png'> Miami, FL", start: "2023-04-15", className: "europeTrips"},
+        { id: 24, content: "<img src='/images/fulls/flagofusa.png'> Washington DC", start: "2023-06-15", className: "usaTrips"},
+        { id: 25, content: "<img src='/images/fulls/flagofusa.png'> San Diego, CA", start: "2023-07-15", className: "usaTrips"},
+        { id: 26, content: "<img src='/images/fulls/flagofusa.png'> Wilmington, NC", start: "2024-04-15", className: "usaTrips"},
+        { id: 27, content: "<img src='/images/fulls/flagofmex.png'> Cancún", start: "2024-05-15", className: "cancun"},
+        { id: 28, content: "<img src='/images/fulls/flagofusa.png'> San Diego, CA", start: "2024-07-15", className: "usaTrips"},
+        { id: 29, content: "<img src='/images/fulls/flagofusa.png'> New York City, NY", start: "2024-10-15", className: "usaTrips"},
+        { id: 30, content: "<img src='/images/fulls/flagofusa.png'> Myrtle Beach, SC", start: "2024-11-15", className: "usaTrips"},
+        { id: 31, content: "<img src='/images/fulls/flagofusa.png'> San Diego, CA", start: "2025-07-15", className: "usaTrips"},
+        { id: 32, content: "<img src='/images/fulls/flagofusa.png'> Myrtle Beach, SC", start: "2026-03-15", className: "usaTrips"},
+        { id: 33, content: "<img src='/images/fulls/flagofusa.png'> San Diego, CA", start: "2026-07-15", className: "usaTrips"},
+        { id: 34, content: "<img src='/images/fulls/flagofusa.png'> Canton, OH", start: "2026-08-15", className: "usaTrips"},
       ]);
+
+      // Configuration for the Timeline
+      let options = {};
+
+      // Create a Timeline
+      let timeline = new vis.Timeline(container, items, options);
     </script>
     <script src="assets/js/main.js"></script>
 

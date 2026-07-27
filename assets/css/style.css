@@ -42,6 +42,30 @@ a {
   opacity: 0;
   visibility: hidden; }
 
+.vis-item.europeTrips {
+  background-color: #677677;
+  border-color: darkred;
+  color: white;
+  font-family: monospace;
+  box-shadow: 0 0 10px gray;
+}
+
+.vis-item.usaTrips {
+  background-color: #990d3e;
+  border-color: darkred;
+  color: white;
+  font-family: monospace;
+  box-shadow: 0 0 10px gray;
+}
+
+.vis-item.cancun {
+  background-color: #aaaa2a;
+  border-color: darkred;
+  color: white;
+  font-family: monospace;
+  box-shadow: 0 0 10px gray;
+}
+
 .offcanvas-menu .site-wrap {
   position: absolute;
   height: 100%;
