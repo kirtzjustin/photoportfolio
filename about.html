@@ -339,7 +339,10 @@
       ]);
 
       // Configuration for the Timeline
-      let options = {};
+      let options = {
+        // start: new Date(new Date().getFullYear(), 0, 1),
+        min: new Date(2014, 0, 1),
+      };
 
       // Create a Timeline
       let timeline = new vis.Timeline(container, items, options);
